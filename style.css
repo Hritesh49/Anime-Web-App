@@ -4,6 +4,10 @@
   font-family: 'Times New Roman', Times, serif;
 }
 
+form#search-form{
+  text-align: center;
+}
+
 header {
   background-color: #262525;
   padding: 2rem;
