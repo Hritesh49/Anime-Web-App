@@ -1,38 +1,42 @@
-h1{
-    text-align: center;
+h1 {
+  text-align: center;
 }
-.anime-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-  
-  .anime-card {
-    width: 200px;
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ddd;
-  }
-  
-  .anime-image {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-  }
-  
-  .anime-title {
-    font-weight: bold;
-  }
-  
-  .anime-score {
-    color: #888;
-  }
-  
-  .anime-episodes {
-    color: #888;
-    font-size: 12px;
-  }
 
-  
+form#search-form{
+    text-align: center
+    ;
+}
+
+.anime-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.anime-card {
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.anime-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.anime-title {
+  font-weight: bold;
+}
+
+.anime-score {
+  color: #888;
+}
+
+.anime-episodes {
+  color: #888;
+  font-size: 12px;
+}
