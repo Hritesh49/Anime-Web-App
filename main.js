@@ -6,14 +6,16 @@ const cloud2 = document.querySelector('#clouds_2');
 const text = document.querySelector('#text');
 const man = document.querySelector('#man');
 
-window.addEventListener('scroll', () => {
-  let value = scrollY;
-  mountainLeft.style.left = `-${value / 0.7}px`;
-  cloud2.style.left = `-${value * 2}px`;
-  mountainRight.style.left = `${value / 0.7}px`;
-  cloud1.style.left = `${value * 2}px`;
-  text.style.bottom = `-${value}px`;
-});
+window.addEventListener('scroll',()=>{
+    let value = scrollY;
+    mountainLeft.style.left = `-${value/0.7}px`
+    cloud2.style.left = `-${value*2}px`
+    mountainRight.style.left = `${value/0.7}px`
+    cloud1.style.left = `${value*2}px`
+    text.style.bottom = `-${value}px`;
+    // man.style.height = `${window.innerHeight - value}px`
+})
+
 
 // Function to fetch anime details by title search
 function fetchAnimeDetails(title) {
@@ -24,7 +26,6 @@ function fetchAnimeDetails(title) {
       animeContainer.innerHTML = '';
 
       const backButton = document.createElement('button');
-      backButton.classList.add('backbtn')
       backButton.textContent = 'Back';
       backButton.addEventListener('click', displayTopAnime);
       animeContainer.appendChild(backButton);
@@ -73,9 +74,9 @@ function displayTopAnime() {
   const animeContainer = document.querySelector('.anime-row-content');
   animeContainer.innerHTML = '';
 
-  // const heading = document.createElement('h2');
-  // heading.textContent = 'Top Anime';
-  // animeContainer.appendChild(heading);
+  const heading = document.createElement('h2');
+  heading.textContent = 'Top Anime';
+  animeContainer.appendChild(heading);
 
   fetch('https://api.jikan.moe/v4/top/anime')
     .then(response => response.json())
