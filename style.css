@@ -115,6 +115,8 @@ form {
   border: 1px solid black;
   border-radius: 25px;
   cursor: pointer;
+  align-self: first baseline;
+  text-align: center;
 }
 
 .backbtn:hover {
@@ -127,29 +129,44 @@ form {
 header {
   background-color: white;
   padding: 2rem;
-  margin-bottom: 10px;
-  /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.525); */
-  position: relative;
-  z-index: 3;
 }
 
-h1 {
+h2 {                /*--for all header--*/
   color: #1F6E8C;
-  font-size: 3.5rem;
+  font-size: 3rem;
   text-align: center;
   font-family: 'Montserrat', serif;
   text-shadow: 1px 2px 10px #9ec0f3;
 }
 
-.anime-row {
+#anime-container {       /*-----all text and anime image----*/
+  margin: 40px 0 10px 0;
+}
+
+.anime-row-content {     /*----for top anime-----*/
+  width: 100%;
+  height: auto;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  margin: 40px 10px 20px 10px;
+  margin: 10px 0 30px 0;
+}
+
+.anime-row.upcoming {      /*------for upcoming anime------*/
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0 20px 0;
 
 }
 
-.anime-card {
+.anime-card {         /*---for all anime box or outline---*/
   width: 200px;
   margin: 10px;
   padding: 10px;
