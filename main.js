@@ -6,22 +6,21 @@ const cloud2 = document.querySelector('#clouds_2');
 const text = document.querySelector('#text');
 const man = document.querySelector('#man');
 
-window.addEventListener('scroll',()=>{
-    let value = scrollY;
-    mountainLeft.style.left = `-${value/0.7}px`
-    cloud2.style.left = `-${value*2}px`
-    mountainRight.style.left = `${value/0.7}px`
-    cloud1.style.left = `${value*2}px`
-    text.style.bottom = `-${value}px`;
-    // man.style.height = `${window.innerHeight - value}px`
-})
-
+window.addEventListener('scroll', () => {
+  let value = scrollY;
+  mountainLeft.style.left = `-${value / 0.7}px`;
+  cloud2.style.left = `-${value * 2}px`;
+  mountainRight.style.left = `${value / 0.7}px`;
+  cloud1.style.left = `${value * 2}px`;
+  text.style.bottom = `-${value}px`;
+  // man.style.height = `${window.innerHeight - value}px`
+});
 
 // Function to fetch anime details by title search
-function fetchAnimeDetails(title) {
+function fetchAnimeDetails(title, id) {
   fetch(`https://api.jikan.moe/v4/anime?q=${title}`)
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       const animeContainer = document.querySelector('.anime-row-content');
       animeContainer.innerHTML = '';
 
@@ -36,15 +35,21 @@ function fetchAnimeDetails(title) {
         noResultsMessage.textContent = 'No results found.';
         animeContainer.appendChild(noResultsMessage);
       } else {
-        data.data.forEach(anime => {
+        data.data.forEach((anime) => {
           const animeCard = document.createElement('div');
           animeCard.classList.add('anime-card');
+
+          // Create anchor tag for the image
+          const imageLink = document.createElement('a');
+          imageLink.href = `details.html?title=${encodeURIComponent(anime.title)}`;
 
           const image = document.createElement('img');
           image.classList.add('anime-image');
           image.src = anime.images.jpg.image_url;
           image.alt = anime.title;
-          animeCard.appendChild(image);
+          imageLink.appendChild(image);
+
+          animeCard.appendChild(imageLink);
 
           const title = document.createElement('div');
           title.classList.add('anime-title');
@@ -65,7 +70,7 @@ function fetchAnimeDetails(title) {
         });
       }
     })
-    .catch(error => {
+    .catch((error) => {
       console.log('Error fetching anime details:', error);
     });
 }
@@ -75,24 +80,26 @@ function displayTopAnime() {
   const animeContainer = document.querySelector('.anime-row-content');
   animeContainer.innerHTML = '';
 
-  // const heading = document.createElement('h2');
-  // heading.textContent = 'Top Anime';
-  // animeContainer.appendChild(heading);
-
   fetch('https://api.jikan.moe/v4/top/anime')
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       const topAnime = data.data;
 
-      topAnime.forEach(anime => {
+      topAnime.forEach((anime) => {
         const animeCard = document.createElement('div');
         animeCard.classList.add('anime-card');
+
+        // Create anchor tag for the image
+        const imageLink = document.createElement('a');
+        imageLink.href = `details.html?title=${encodeURIComponent(anime.title)}`;
 
         const image = document.createElement('img');
         image.classList.add('anime-image');
         image.src = anime.images.jpg.image_url;
         image.alt = anime.title;
-        animeCard.appendChild(image);
+        imageLink.appendChild(image);
+
+        animeCard.appendChild(imageLink);
 
         const title = document.createElement('div');
         title.classList.add('anime-title');
@@ -112,7 +119,7 @@ function displayTopAnime() {
         animeContainer.appendChild(animeCard);
       });
     })
-    .catch(error => {
+    .catch((error) => {
       console.log('Error fetching top anime:', error);
     });
 }
@@ -121,24 +128,26 @@ function displayUpcomingSeason() {
   const animeContainer = document.querySelector('.anime-row.upcoming');
   animeContainer.innerHTML = '';
 
-  // const heading = document.createElement('h2');
-  // heading.textContent = 'Upcoming Anime';
-  // animeContainer.appendChild(heading);
-
   fetch('https://api.jikan.moe/v4/seasons/upcoming')
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       const upcomingAnime = data.data;
 
-      upcomingAnime.forEach(anime => {
+      upcomingAnime.forEach((anime) => {
         const animeCard = document.createElement('div');
         animeCard.classList.add('anime-card');
+
+        // Create anchor tag for the image
+        const imageLink = document.createElement('a');
+        imageLink.href = `details.html?title=${encodeURIComponent(anime.title)}`;
 
         const image = document.createElement('img');
         image.classList.add('anime-image');
         image.src = anime.images.jpg.image_url;
         image.alt = anime.title;
-        animeCard.appendChild(image);
+        imageLink.appendChild(image);
+
+        animeCard.appendChild(imageLink);
 
         const title = document.createElement('div');
         title.classList.add('anime-title');
@@ -148,7 +157,7 @@ function displayUpcomingSeason() {
         animeContainer.appendChild(animeCard);
       });
     })
-    .catch(error => {
+    .catch((error) => {
       console.log('Error fetching upcoming season:', error);
     });
 }
@@ -171,3 +180,12 @@ searchForm.addEventListener('submit', handleSearch);
 // Display top anime initially
 displayTopAnime();
 displayUpcomingSeason();
+
+// Retrieve the title from the URL query parameter
+const urlParams = new URLSearchParams(window.location.search);
+const title = urlParams.get('title');
+
+// Fetch anime details using the title
+if (title) {
+  fetchAnimeDetails(title);
+}
