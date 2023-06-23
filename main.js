@@ -26,6 +26,7 @@ function fetchAnimeDetails(title) {
       animeContainer.innerHTML = ''; // Clear previous anime data
 
       const backButton = document.createElement('button');
+      backButton.classList.add('backbtn')
       backButton.textContent = 'Back';
       backButton.addEventListener('click', displayTopAnime);
       animeContainer.appendChild(backButton);
@@ -79,9 +80,9 @@ function displayTopAnime() {
   const animeContainer = document.getElementById('anime-container');
   animeContainer.innerHTML = ''; // Clear previous anime data
 
-  const heading = document.createElement('h2');
-  heading.textContent = 'Top Anime';
-  animeContainer.appendChild(heading);
+  // const heading = document.createElement('h2');
+  // heading.textContent = 'Top Anime';
+  // animeContainer.appendChild(heading);
 
   const row = document.createElement('div');
   row.classList.add('anime-row');
