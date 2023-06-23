@@ -24,6 +24,7 @@ function fetchAnimeDetails(title) {
       animeContainer.innerHTML = '';
 
       const backButton = document.createElement('button');
+      backButton.classList.add('backbtn')
       backButton.textContent = 'Back';
       backButton.addEventListener('click', displayTopAnime);
       animeContainer.appendChild(backButton);
@@ -72,9 +73,9 @@ function displayTopAnime() {
   const animeContainer = document.querySelector('.anime-row-content');
   animeContainer.innerHTML = '';
 
-  const heading = document.createElement('h2');
-  heading.textContent = 'Top Anime';
-  animeContainer.appendChild(heading);
+  // const heading = document.createElement('h2');
+  // heading.textContent = 'Top Anime';
+  // animeContainer.appendChild(heading);
 
   fetch('https://api.jikan.moe/v4/top/anime')
     .then(response => response.json())
