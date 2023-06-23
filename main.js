@@ -43,7 +43,7 @@ function fetchAnimeDetails(title) {
           episodes.classList.add('anime-episodes');
           episodes.textContent = `Episodes: ${anime.episodes}`;
           animeCard.appendChild(episodes);
-
+          
           row.appendChild(animeCard);
         });
 
@@ -59,6 +59,10 @@ function fetchAnimeDetails(title) {
 function displayTopAnime() {
   const animeContainer = document.getElementById('anime-container');
   animeContainer.innerHTML = ''; // Clear previous anime data
+
+  const heading = document.createElement('h2');
+  heading.textContent = 'Top Anime';
+  animeContainer.appendChild(heading);
 
   const row = document.createElement('div');
   row.classList.add('anime-row');
@@ -102,6 +106,7 @@ function displayTopAnime() {
       console.log('Error fetching top anime:', error);
     });
 }
+
 
 // Function to handle form submission and initiate search
 function handleSearch(event) {
