@@ -113,17 +113,17 @@ function createAnimeCard(anime) {
   episodes.textContent = `Episodes: ${anime.episodes}`;
   animeCard.appendChild(episodes);
 
-<<<<<<< HEAD
-        animeContainer.appendChild(animeCard);
-      });
+// <<<<<<< HEAD
+//         animeContainer.appendChild(animeCard);
+//       });
       
-    })
-    .catch((error) => {
-      console.log('Error fetching top anime:', error);
-    });
-=======
-  return animeCard;
->>>>>>> 774e742e54cf7d790a564a9f2beaee44ab1bb535
+//     })
+//     .catch((error) => {
+//       console.log('Error fetching top anime:', error);
+//     });
+// =======
+//   return animeCard;
+// >>>>>>> 774e742e54cf7d790a564a9f2beaee44ab1bb535
 }
 
 function displayUpcomingSeason() {
