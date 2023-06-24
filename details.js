@@ -39,12 +39,49 @@ function fetchAnimeDetails(title) {
         image.alt = anime.title;
         animeCard.appendChild(image);
 
+        if (anime.studios && anime.studios.length > 0) {
+          const studios = document.createElement('div');
+          studios.classList.add('anime-studios');
+          studios.textContent = `Studios: ${anime.studios.map((studio) => studio.name).join(', ')}`;
+          animeCard.appendChild(studios);
+        }
+        
+        if (anime.genres && anime.genres.length > 0) {
+          const genres = document.createElement('div');
+          genres.classList.add('anime-genres');
+          genres.textContent = `Genres: ${anime.genres.map((genre) => genre.name).join(', ')}`;
+          animeCard.appendChild(genres);
+        }
+        if (anime.producers && anime.producers.length > 0) {
+          const producers = document.createElement('div');
+          producers.classList.add('anime-producers');
+          producers.textContent = `Producers: ${anime.producers.map((producer) => producer.name).join(', ')}`;
+          animeCard.appendChild(producers);
+        }
+
+        if (anime.source) {
+          const source = document.createElement('div');
+          source.classList.add('anime-source');
+          source.textContent = `Source: ${anime.source}`;
+          animeCard.appendChild(source);
+        }
+        
+        if (anime.year) {
+          const year = document.createElement('div');
+          year.classList.add('anime-year');
+          year.textContent = `Year of Release: ${anime.year}`;
+          animeCard.appendChild(year);
+        }
         if (anime.synopsis) {
           const synopsis = document.createElement('div');
           synopsis.classList.add('anime-synopsis');
           synopsis.textContent = `Synopsis: ${anime.synopsis}`;
           animeCard.appendChild(synopsis);
         }
+      
+        
+        
+        
 
         animeDetailsContainer.appendChild(animeCard);
 
@@ -102,6 +139,7 @@ fetch(`https://api.jikan.moe/v4/anime/${animeId}/characters`)
   console.log('Error fetching anime characters:', error);
 });
 }
+
 
 // Retrieve the title from the URL query parameter
 const urlParams = new URLSearchParams(window.location.search);
