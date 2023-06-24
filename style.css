@@ -143,6 +143,7 @@ h2 {                /*--for all header--*/
   margin: 40px 0 10px 0;
 }
 
+
 .anime-row-content {     /*----for top anime-----*/
   width: 100%;
   height: auto;
@@ -167,7 +168,8 @@ h2 {                /*--for all header--*/
 }
 
 .anime-card {         /*---for all anime box or outline---*/
-  width: 200px;
+  width: 230px;
+  height: 480px;
   margin: 10px;
   padding: 10px;
   text-align: center;
