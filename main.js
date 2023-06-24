@@ -14,11 +14,13 @@ window.addEventListener('scroll', () => {
   text.style.bottom = `-${value}px`;
 });
 
+
 // Function to fetch anime details by title search
 function fetchAnimeDetails(title, id) {
   fetch(`https://api.jikan.moe/v4/anime?q=${title}`)
     .then((response) => response.json())
     .then((data) => {
+
       const animeContainer = document.querySelector('.anime-row-content');
       animeContainer.innerHTML = '';
 
@@ -31,6 +33,7 @@ function fetchAnimeDetails(title, id) {
         displayUpcomingSeason();
       });
       animeContainer.appendChild(backButton);
+
 
       if (data.data.length === 0) {
         const noResultsMessage = document.createElement('p');
@@ -45,15 +48,13 @@ function fetchAnimeDetails(title, id) {
       const heading = document.querySelector('#myHeading');
       const upcomingHeading = document.querySelector('#upcomingHeading');
 
-      // Hide the <h2> elements by setting their display property to 'none'
-      heading.style.display = 'none';
-      upcomingHeading.style.display = 'none';
-      
-      
+      // heading.style.display = 'none';
+      // upcomingHeading.style.display = 'none';
 
-     // Hide upcoming anime container	
-      const upcomingAnimeContainer = document.querySelector('.anime-row.upcoming');	
+      // Hide upcoming anime container
+      const upcomingAnimeContainer = document.querySelector('.anime-row.upcoming');
       upcomingAnimeContainer.style.display = 'none';
+
     })
 
     .catch((error) => {
@@ -98,20 +99,20 @@ function createAnimeCard(anime) {
 
   animeCard.appendChild(imageLink);
 
-  const title = document.createElement('div');
-  title.classList.add('anime-title');
-  title.textContent = anime.title;
-  animeCard.appendChild(title);
+        const title = document.createElement('div');
+        title.classList.add('anime-title');
+        title.textContent = anime.title;
+        animeCard.appendChild(title);
 
-  const score = document.createElement('div');
-  score.classList.add('anime-score');
-  score.textContent = `Score: ${anime.score}`;
-  animeCard.appendChild(score);
+        const score = document.createElement('div');
+        score.classList.add('anime-score');
+        score.textContent = `Score: ${anime.score}`;
+        animeCard.appendChild(score);
 
-  const episodes = document.createElement('div');
-  episodes.classList.add('anime-episodes');
-  episodes.textContent = `Episodes: ${anime.episodes}`;
-  animeCard.appendChild(episodes);
+        const episodes = document.createElement('div');
+        episodes.classList.add('anime-episodes');
+        episodes.textContent = `Episodes: ${anime.episodes}`;
+        animeCard.appendChild(episodes);
 
 // <<<<<<< HEAD
 //         animeContainer.appendChild(animeCard);
@@ -129,6 +130,7 @@ function createAnimeCard(anime) {
 function displayUpcomingSeason() {
   const animeContainer = document.querySelector('.anime-row.upcoming');
   animeContainer.innerHTML = '';
+
 
   fetch('https://api.jikan.moe/v4/seasons/upcoming')
     .then((response) => response.json())
