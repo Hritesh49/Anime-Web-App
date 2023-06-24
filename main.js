@@ -86,7 +86,7 @@ function displayTopAnime() {
   fetch('https://api.jikan.moe/v4/top/anime')
     .then((response) => response.json())
     .then((data) => {
-      const topAnime = data.data;
+      const topAnime = data.data.slice(0,10);
 
       topAnime.forEach((anime) => {
         const animeCard = document.createElement('div');
@@ -121,6 +121,7 @@ function displayTopAnime() {
 
         animeContainer.appendChild(animeCard);
       });
+      
     })
     .catch((error) => {
       console.log('Error fetching top anime:', error);
@@ -134,7 +135,7 @@ function displayUpcomingSeason() {
   fetch('https://api.jikan.moe/v4/seasons/upcoming')
     .then((response) => response.json())
     .then((data) => {
-      const upcomingAnime = data.data;
+      const upcomingAnime = data.data.slice(0,10);
 
       upcomingAnime.forEach((anime) => {
         const animeCard = document.createElement('div');
@@ -192,3 +193,6 @@ const title = urlParams.get('title');
 if (title) {
   fetchAnimeDetails(title);
 }
+
+
+     
