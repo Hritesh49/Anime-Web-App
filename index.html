@@ -3,10 +3,27 @@
 <head>
   <title>Anime Info</title>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <section class="top-nav">
+    <div>
+      The Ultimate Escape
+    </div>
+    <input id="menu-toggle" type="checkbox" />
+    <label class='menu-button-container' for="menu-toggle">
+    <div class='menu-button'></div>
+  </label>
+    <ul class="menu">
+      <li><a href="#myheading">Top Anime</a></li>
+      <li><a href="#upcomingheading">Upcoming</a></li>
+      <li>Gallery</li>
+      <li>Favourites</li>
+      
+    </ul>
+  </section>
   <section id="top">
     <img src="assets/bg.jpg" id="bg">
     <h2 id="text">Anime</h2>
@@ -28,13 +45,14 @@
     </form>
 
     <div id="anime-container">
-      <h2 >Top Anime</h2>
+      <h2 id="myHeading">Top Anime</h2>
       <div class="anime-row">
         <div class="anime-row-content"></div>
       </div>
-      <h2 >Upcoming Anime</h2>
+      <h2 id="upcomingHeading">Upcoming Anime</h2>
       <div class="anime-row upcoming">
       </div>
+    </div>
     </div>
   </div>
 
