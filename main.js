@@ -30,7 +30,17 @@ function fetchAnimeDetails(title, id) {
       backButton.addEventListener('click', () => {
         animeContainer.innerHTML = '';
         displayTopAnime();
-        displayUpcomingSeason();
+        // displayUpcomingSeason();
+
+        const upcomingAnimeContainer = document.querySelector('.anime-row.upcoming');
+        upcomingAnimeContainer.style.display = 'flex';
+
+        const heading = document.querySelector('#myHeading');
+        const upcomingHeading = document.querySelector('#upcomingHeading');
+
+        heading.style.display = 'block';
+        upcomingHeading.style.display = 'block';
+
       });
       animeContainer.appendChild(backButton);
 
@@ -48,8 +58,8 @@ function fetchAnimeDetails(title, id) {
       const heading = document.querySelector('#myHeading');
       const upcomingHeading = document.querySelector('#upcomingHeading');
 
-      // heading.style.display = 'none';
-      // upcomingHeading.style.display = 'none';
+      heading.style.display = 'none';
+      upcomingHeading.style.display = 'none';
 
       // Hide upcoming anime container
       const upcomingAnimeContainer = document.querySelector('.anime-row.upcoming');
@@ -99,20 +109,20 @@ function createAnimeCard(anime) {
 
   animeCard.appendChild(imageLink);
 
-        const title = document.createElement('div');
-        title.classList.add('anime-title');
-        title.textContent = anime.title;
-        animeCard.appendChild(title);
+  const title = document.createElement('div');
+  title.classList.add('anime-title');
+  title.textContent = anime.title;
+  animeCard.appendChild(title);
 
-        const score = document.createElement('div');
-        score.classList.add('anime-score');
-        score.textContent = `Score: ${anime.score}`;
-        animeCard.appendChild(score);
+  const score = document.createElement('div');
+  score.classList.add('anime-score');
+  score.textContent = `Score: ${anime.score}`;
+  animeCard.appendChild(score);
 
-        const episodes = document.createElement('div');
-        episodes.classList.add('anime-episodes');
-        episodes.textContent = `Episodes: ${anime.episodes}`;
-        animeCard.appendChild(episodes);
+  const episodes = document.createElement('div');
+  episodes.classList.add('anime-episodes');
+  episodes.textContent = `Episodes: ${anime.episodes}`;
+  animeCard.appendChild(episodes);
 
   return animeCard;
 }
