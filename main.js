@@ -12,7 +12,6 @@ window.addEventListener('scroll', () => {
   mountainRight.style.left = `${value / 0.7}px`;
   cloud1.style.left = `${value * 2}px`;
   text.style.bottom = `-${value}px`;
-  // man.style.height = `${window.innerHeight - value}px`
 });
 
 // Function to fetch anime details by title search
@@ -26,7 +25,11 @@ function fetchAnimeDetails(title, id) {
       const backButton = document.createElement('button');
       backButton.classList.add('backbtn');
       backButton.textContent = 'Back';
-      backButton.addEventListener('click', displayTopAnime);
+      backButton.addEventListener('click', () => {
+        animeContainer.innerHTML = '';
+        displayTopAnime();
+        displayUpcomingSeason();
+      });
       animeContainer.appendChild(backButton);
 
       if (data.data.length === 0) {
@@ -35,44 +38,15 @@ function fetchAnimeDetails(title, id) {
         animeContainer.appendChild(noResultsMessage);
       } else {
         data.data.forEach((anime) => {
-          const animeCard = document.createElement('div');
-          animeCard.classList.add('anime-card');
-
-          // Create anchor tag for the image
-          const imageLink = document.createElement('a');
-          imageLink.href = `details.html?title=${encodeURIComponent(anime.title)}`;
-
-          const image = document.createElement('img');
-          image.classList.add('anime-image');
-          image.src = anime.images.jpg.image_url;
-          image.alt = anime.title;
-          imageLink.appendChild(image);
-
-          animeCard.appendChild(imageLink);
-
-          const title = document.createElement('div');
-          title.classList.add('anime-title');
-          title.textContent = anime.title;
-          animeCard.appendChild(title);
-
-          const score = document.createElement('div');
-          score.classList.add('anime-score');
-          score.textContent = `Score: ${anime.score}`;
-          animeCard.appendChild(score);
-
-          const episodes = document.createElement('div');
-          episodes.classList.add('anime-episodes');
-          episodes.textContent = `Episodes: ${anime.episodes}`;
-          animeCard.appendChild(episodes);
-
+          const animeCard = createAnimeCard(anime);
           animeContainer.appendChild(animeCard);
         });
       }
-
-      // Hide upcoming anime container
-      const upcomingAnimeContainer = document.querySelector('.anime-row.upcoming');
+     // Hide upcoming anime container	
+      const upcomingAnimeContainer = document.querySelector('.anime-row.upcoming');	
       upcomingAnimeContainer.style.display = 'none';
     })
+
     .catch((error) => {
       console.log('Error fetching anime details:', error);
     });
@@ -89,20 +63,31 @@ function displayTopAnime() {
       const topAnime = data.data;
 
       topAnime.forEach((anime) => {
-        const animeCard = document.createElement('div');
-        animeCard.classList.add('anime-card');
+        const animeCard = createAnimeCard(anime);
+        animeContainer.appendChild(animeCard);
+      });
+    })
+    .catch((error) => {
+      console.log('Error fetching top anime:', error);
+    });
+}
 
-        // Create anchor tag for the image
-        const imageLink = document.createElement('a');
-        imageLink.href = `details.html?title=${encodeURIComponent(anime.title)}`;
+// Function to create an anime card element
+function createAnimeCard(anime) {
+  const animeCard = document.createElement('div');
+  animeCard.classList.add('anime-card');
 
-        const image = document.createElement('img');
-        image.classList.add('anime-image');
-        image.src = anime.images.jpg.image_url;
-        image.alt = anime.title;
-        imageLink.appendChild(image);
+  // Create anchor tag for the image
+  const imageLink = document.createElement('a');
+  imageLink.href = `details.html?title=${encodeURIComponent(anime.title)}`;
 
-        animeCard.appendChild(imageLink);
+  const image = document.createElement('img');
+  image.classList.add('anime-image');
+  image.src = anime.images.jpg.image_url;
+  image.alt = anime.title;
+  imageLink.appendChild(image);
+
+  animeCard.appendChild(imageLink);
 
   const title = document.createElement('div');
   title.classList.add('anime-title');
@@ -119,12 +104,7 @@ function displayTopAnime() {
   episodes.textContent = `Episodes: ${anime.episodes}`;
   animeCard.appendChild(episodes);
 
-        animeContainer.appendChild(animeCard);
-      });
-    })
-    .catch((error) => {
-      console.log('Error fetching top anime:', error);
-    });
+  return animeCard;
 }
 
 function displayUpcomingSeason() {
@@ -137,26 +117,7 @@ function displayUpcomingSeason() {
       const upcomingAnime = data.data;
 
       upcomingAnime.forEach((anime) => {
-        const animeCard = document.createElement('div');
-        animeCard.classList.add('anime-card');
-
-        // Create anchor tag for the image
-        const imageLink = document.createElement('a');
-        imageLink.href = `details.html?title=${encodeURIComponent(anime.title)}`;
-
-        const image = document.createElement('img');
-        image.classList.add('anime-image');
-        image.src = anime.images.jpg.image_url;
-        image.alt = anime.title;
-        imageLink.appendChild(image);
-
-        animeCard.appendChild(imageLink);
-
-        const title = document.createElement('div');
-        title.classList.add('anime-title');
-        title.textContent = anime.title;
-        animeCard.appendChild(title);
-
+        const animeCard = createAnimeCard(anime);
         animeContainer.appendChild(animeCard);
       });
     })
