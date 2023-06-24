@@ -1,4 +1,3 @@
-// Animation of the top container
 const mountainLeft = document.querySelector('#mountain_left');
 const mountainRight = document.querySelector('#mountain_right');
 const cloud1 = document.querySelector('#clouds_1');
@@ -69,6 +68,10 @@ function fetchAnimeDetails(title, id) {
           animeContainer.appendChild(animeCard);
         });
       }
+
+      // Hide upcoming anime container
+      const upcomingAnimeContainer = document.querySelector('.anime-row.upcoming');
+      upcomingAnimeContainer.style.display = 'none';
     })
     .catch((error) => {
       console.log('Error fetching anime details:', error);
@@ -101,20 +104,20 @@ function displayTopAnime() {
 
         animeCard.appendChild(imageLink);
 
-        const title = document.createElement('div');
-        title.classList.add('anime-title');
-        title.textContent = anime.title;
-        animeCard.appendChild(title);
+  const title = document.createElement('div');
+  title.classList.add('anime-title');
+  title.textContent = anime.title;
+  animeCard.appendChild(title);
 
-        const score = document.createElement('div');
-        score.classList.add('anime-score');
-        score.textContent = `Score: ${anime.score}`;
-        animeCard.appendChild(score);
+  const score = document.createElement('div');
+  score.classList.add('anime-score');
+  score.textContent = `Score: ${anime.score}`;
+  animeCard.appendChild(score);
 
-        const episodes = document.createElement('div');
-        episodes.classList.add('anime-episodes');
-        episodes.textContent = `Episodes: ${anime.episodes}`;
-        animeCard.appendChild(episodes);
+  const episodes = document.createElement('div');
+  episodes.classList.add('anime-episodes');
+  episodes.textContent = `Episodes: ${anime.episodes}`;
+  animeCard.appendChild(episodes);
 
         animeContainer.appendChild(animeCard);
       });
@@ -177,7 +180,7 @@ function handleSearch(event) {
 const searchForm = document.querySelector('#search-form');
 searchForm.addEventListener('submit', handleSearch);
 
-// Display top anime initially
+// Display top anime and upcoming seasons initially
 displayTopAnime();
 displayUpcomingSeason();
 
