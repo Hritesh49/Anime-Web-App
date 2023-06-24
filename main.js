@@ -45,8 +45,8 @@ function fetchAnimeDetails(title, id) {
       const heading = document.querySelector('#myHeading');
       const upcomingHeading = document.querySelector('#upcomingHeading');
 
-      heading.style.display = 'none';
-      upcomingHeading.style.display = 'none';
+      // heading.style.display = 'none';
+      // upcomingHeading.style.display = 'none';
 
       // Hide upcoming anime container
       const upcomingAnimeContainer = document.querySelector('.anime-row.upcoming');
