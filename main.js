@@ -42,6 +42,15 @@ function fetchAnimeDetails(title, id) {
           animeContainer.appendChild(animeCard);
         });
       }
+      const heading = document.querySelector('#myHeading');
+      const upcomingHeading = document.querySelector('#upcomingHeading');
+
+      // Hide the <h2> elements by setting their display property to 'none'
+      heading.style.display = 'none';
+      upcomingHeading.style.display = 'none';
+      
+      
+
      // Hide upcoming anime container	
       const upcomingAnimeContainer = document.querySelector('.anime-row.upcoming');	
       upcomingAnimeContainer.style.display = 'none';
