@@ -1,3 +1,4 @@
+
 // Function to fetch anime details by title
 function fetchAnimeDetails(title) {
   fetch(`https://api.jikan.moe/v4/anime?q=${title}`)
@@ -17,6 +18,12 @@ function fetchAnimeDetails(title) {
 
         const animeCard = document.createElement('div');
         animeCard.classList.add('anime-card');
+        
+        const image = document.createElement('img');
+        image.classList.add('anime-image');
+        image.src = anime.images.jpg.image_url;
+        image.alt = anime.title;
+        animeCard.appendChild(image);
 
         const title = document.createElement('div');
         title.classList.add('anime-title');
@@ -32,12 +39,6 @@ function fetchAnimeDetails(title) {
         episodes.classList.add('anime-episodes');
         episodes.textContent = `Episodes: ${anime.episodes}`;
         animeCard.appendChild(episodes);
-
-        const image = document.createElement('img');
-        image.classList.add('anime-image');
-        image.src = anime.images.jpg.image_url;
-        image.alt = anime.title;
-        animeCard.appendChild(image);
 
         if (anime.studios && anime.studios.length > 0) {
           const studios = document.createElement('div');
@@ -94,6 +95,13 @@ function fetchAnimeDetails(title) {
     });
 }
 
+
+
+
+
+
+
+
 // Function to fetch characters for the anime
 // Function to fetch characters for the anime
 function fetchAnimeCharacters(animeId) {
@@ -123,6 +131,7 @@ fetch(`https://api.jikan.moe/v4/anime/${animeId}/characters`)
       characterImage.src = character.image_url;
       characterImage.alt = character.name;
       characterItem.appendChild(characterImage);
+     
 
       const characterName = document.createElement('div');
       characterName.classList.add('character-name');
@@ -149,3 +158,5 @@ const title = urlParams.get('title');
 if (title) {
   fetchAnimeDetails(title);
 }
+
+
