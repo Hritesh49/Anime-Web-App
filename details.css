@@ -30,7 +30,10 @@ html, body {
   font-family: "Raleway";
   box-sizing: border-box;
 }
-
+.nav-name{
+  display: block;
+  font-weight: bold;
+}
 .navBar{
     display: block;
     position: fixed;
@@ -38,7 +41,8 @@ html, body {
 
 a{
   text-decoration: none;
-  color:#888;
+  color:#ecf3f5;
+  font-weight: bold;
 }
 
 .top-nav {
@@ -46,8 +50,8 @@ a{
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #78909c;
-  /* background: linear-gradient(to left, #bdc3c7 , #2c3e50); */
+  /* background-color: #000000; */
+  background: linear-gradient(to left, #0868a7 , #0a335d);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #FFF;
   height: 50px;
@@ -119,6 +123,7 @@ a{
   margin-top: 0px;
   transform: rotate(-405deg);
 }
+/* charactes css */
 
 @media (max-width: 700px) {
   .menu-button-container {

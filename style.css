@@ -13,6 +13,10 @@ body {
   width: 100vw;
   overflow-x: hidden;
 }
+.name{
+  display: block;
+  font-weight: bold;
+}
 /*---------------nav bar------------*/
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 h2 {
@@ -32,7 +36,8 @@ html, body {
 
 a{
   text-decoration: none;
-  color:#888;
+  color:#f5f8f9;
+  font-weight: bold;
 }
 
 .top-nav {
@@ -40,8 +45,8 @@ a{
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #00BAF0;
-  background: linear-gradient(to left, #bdc3c7 , #2c3e50);
+  /* background-color: #00BAF0; */
+  background: linear-gradient(to left, #136398 , #013365);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #FFF;
   height: 50px;

@@ -92,6 +92,7 @@ function displayTopAnime() {
     });
 }
 
+
 // Function to create an anime card element
 function createAnimeCard(anime) {
   const animeCard = document.createElement('div');
