@@ -4,6 +4,7 @@ const cloud1 = document.querySelector('#clouds_1');
 const cloud2 = document.querySelector('#clouds_2');
 const text = document.querySelector('#text');
 const man = document.querySelector('#man');
+const arrow = document.querySelector('#arrow');
 
 window.addEventListener('scroll', () => {
   let value = scrollY;
@@ -12,6 +13,7 @@ window.addEventListener('scroll', () => {
   mountainRight.style.left = `${value / 0.7}px`;
   cloud1.style.left = `${value * 2}px`;
   text.style.bottom = `-${value}px`;
+  arrow.style.bottom = `-${value}px`;
 });
 
 
@@ -80,7 +82,7 @@ function displayTopAnime() {
   fetch('https://api.jikan.moe/v4/top/anime')
     .then((response) => response.json())
     .then((data) => {
-      const topAnime = data.data.slice(0,10);
+      const topAnime = data.data.slice(0,8);
 
       topAnime.forEach((anime) => {
         const animeCard = createAnimeCard(anime);
@@ -135,7 +137,7 @@ function displayUpcomingSeason() {
   fetch('https://api.jikan.moe/v4/seasons/upcoming')
     .then((response) => response.json())
     .then((data) => {
-      const upcomingAnime = data.data.slice(0,10);
+      const upcomingAnime = data.data.slice(0,8);
 
       upcomingAnime.forEach((anime) => {
         const animeCard = createAnimeCard(anime);
