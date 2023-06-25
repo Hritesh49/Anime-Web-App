@@ -334,6 +334,16 @@ h2 {                /*--for all header--*/
   box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.645);
   z-index: 2;
 }
+.anime-upcard {         /*---for all anime box or outline---*/
+  width: 230px;
+  height: 480px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.645);
+  z-index: 2;
+}
 
 .anime-image {
   width: 100%;
