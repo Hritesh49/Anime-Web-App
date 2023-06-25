@@ -162,6 +162,8 @@ fetch('https://graphql.anilist.co', {
       listItem.appendChild(nameSpan);
 
       characterList.appendChild(listItem);
+     
+      
     });
   })
   .catch(error => {
