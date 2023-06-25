@@ -85,9 +85,6 @@ function fetchAnimeDetails(title) {
         
 
         animeDetailsContainer.appendChild(animeCard);
-
-        // Fetch characters for the anime
-        fetchAnimeCharacters(anime.mal_id);
       }
     })
     .catch((error) => {
@@ -95,59 +92,6 @@ function fetchAnimeDetails(title) {
     });
 }
 
-
-
-
-
-
-
-
-// Function to fetch characters for the anime
-// Function to fetch characters for the anime
-function fetchAnimeCharacters(animeId) {
-fetch(`https://api.jikan.moe/v4/anime/${animeId}/characters`)
-.then((response) => response.json())
-.then((data) => {
-  const characterGalleryContainer = document.querySelector('#character-gallery');
-
-  if (data.data.length === 0) {
-    const noResultsMessage = document.createElement('p');
-    noResultsMessage.textContent = 'No character information found.';
-    characterGalleryContainer.appendChild(noResultsMessage);
-  } else {
-    const characterGalleryTitle = document.createElement('h2');
-    characterGalleryTitle.textContent = 'Character Gallery';
-    characterGalleryContainer.appendChild(characterGalleryTitle);
-
-    const characterList = document.createElement('ul');
-    characterList.classList.add('character-list');
-
-    data.data.forEach((character) => {
-      const characterItem = document.createElement('li');
-      characterItem.classList.add('character-item');
-
-      const characterImage = document.createElement('img');
-      characterImage.classList.add('character-image');
-      characterImage.src = character.image_url;
-      characterImage.alt = character.name;
-      characterItem.appendChild(characterImage);
-     
-
-      const characterName = document.createElement('div');
-      characterName.classList.add('character-name');
-      characterName.textContent = character.name;
-      characterItem.appendChild(characterName);
-
-      characterList.appendChild(characterItem);
-    });
-
-    characterGalleryContainer.appendChild(characterList);
-  }
-})
-.catch((error) => {
-  console.log('Error fetching anime characters:', error);
-});
-}
 
 
 // Retrieve the title from the URL query parameter
@@ -158,5 +102,71 @@ const title = urlParams.get('title');
 if (title) {
   fetchAnimeDetails(title);
 }
+const t=title;
+console.log(title);
+
+
+
+// Make an HTTP POST request to AniList API for Dragon Ball Z characters
+fetch('https://graphql.anilist.co', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+  },
+  body: JSON.stringify({
+    query: `
+      query ($title: String) {
+        Media(type: ANIME, search: $title) {
+          characters {
+            edges {
+              node {
+                name {
+                  full
+                }
+                image {
+                  large
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+    variables: {
+      title: t,
+    },
+  }),
+})
+  .then(response => response.json())
+  .then(data => {
+    // Extract the characters from the response
+    const characters = data.data.Media.characters.edges;
+
+    // Get the character list element
+    const characterList = document.getElementById('character-list');
+
+    // Display each character's name and image
+    characters.forEach(character => {
+      const listItem = document.createElement('li');
+
+      // Create an image element
+      const image = document.createElement('img');
+      image.src = character.node.image.large;
+      image.alt = character.node.name.full;
+      listItem.appendChild(image);
+
+      // Create a span element for the character name
+      const nameSpan = document.createElement('span');
+      nameSpan.textContent = character.node.name.full;
+      listItem.appendChild(nameSpan);
+
+      characterList.appendChild(listItem);
+    });
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
 
 
