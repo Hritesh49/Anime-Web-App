@@ -4,6 +4,7 @@ const cloud1 = document.querySelector('#clouds_1');
 const cloud2 = document.querySelector('#clouds_2');
 const text = document.querySelector('#text');
 const man = document.querySelector('#man');
+const arrow = document.querySelector('#arrow');
 
 window.addEventListener('scroll', () => {
   let value = scrollY;
@@ -12,6 +13,7 @@ window.addEventListener('scroll', () => {
   mountainRight.style.left = `${value / 0.7}px`;
   cloud1.style.left = `${value * 2}px`;
   text.style.bottom = `-${value}px`;
+  arrow.style.bottom = `-${value}px`;
 });
 
 
