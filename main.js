@@ -4,7 +4,7 @@ const cloud1 = document.querySelector('#clouds_1');
 const cloud2 = document.querySelector('#clouds_2');
 const text = document.querySelector('#text');
 const man = document.querySelector('#man');
-const arrow = document.querySelector('#arrow');
+// const arrow = document.querySelector('#arrow');
 
 window.addEventListener('scroll', () => {
   let value = scrollY;
@@ -13,7 +13,7 @@ window.addEventListener('scroll', () => {
   mountainRight.style.left = `${value / 0.7}px`;
   cloud1.style.left = `${value * 2}px`;
   text.style.bottom = `-${value}px`;
-  arrow.style.bottom = `-${value}px`;
+  // arrow.style.bottom = `-${value}px`;
 });
 
 
@@ -150,18 +150,36 @@ function createAnimeUpcard(anime) {
   title.textContent = anime.title;
   animeUpcard.appendChild(title);
 
-  const score = document.createElement('div');
-  score.classList.add('anime-score');
-  score.textContent = `Score: ${anime.score}`;
-  animeUpcard.appendChild(score);
+  // const score = document.createElement('div');
+  // score.classList.add('anime-score');
+  // score.textContent = `Score: ${anime.score}`;
+  // animeUpcard.appendChild(score);
 
-  const episodes = document.createElement('div');
-  episodes.classList.add('anime-episodes');
-  episodes.textContent = `Episodes: ${anime.episodes}`;
-  animeUpcard.appendChild(episodes);
+  // const episodes = document.createElement('div');
+  // episodes.classList.add('anime-episodes');
+  // episodes.textContent = `Episodes: ${anime.episodes}`;
+  // animeUpcard.appendChild(episodes);
 
   return animeUpcard;
 }
+
+const upcoming = document.querySelector('.upcoming');
+const Left = document.querySelector('.left');
+const Right = document.querySelector('.right');
+
+upcoming.addEventListener("wheel", (evt) => {
+  // evt.preventDefault();
+  upcoming.scrollLeft += evt.deltaY;
+});
+Left.addEventListener("click", ()=>{
+  upcoming.style.scrollBehaviour = "smooth";
+  upcoming.scrollLeft -= 300; 
+});
+Right.addEventListener("click", ()=>{
+  upcoming.style.scrollBehaviour = "smooth";
+  upcoming.scrollLeft += 300; 
+});
+
 
 function displayUpcomingSeason() {
   const animeContainer = document.querySelector('.anime-row.upcoming');
@@ -170,7 +188,7 @@ function displayUpcomingSeason() {
   fetch('https://api.jikan.moe/v4/seasons/upcoming')
     .then((response) => response.json())
     .then((data) => {
-      const upcomingAnime = data.data.slice(0, 10);
+      const upcomingAnime = data.data.slice(0, 40);
 
       upcomingAnime.forEach((anime) => {
         const animeUpcard = createAnimeUpcard(anime);
