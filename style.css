@@ -202,6 +202,10 @@ a {
   right: auto;
 }
 
+#emoji{
+  z-index: 99;
+}
+
 section img {
   position: absolute;
   top: 0;
@@ -338,6 +342,21 @@ h2 {
 
 .anime-card {
   /*---for all anime box or outline---*/
+  width: 230px;
+  height: 480px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.645);
+  z-index: 2;
+  transition: transform .2s;
+}
+
+.anime-card:hover{
+  transform:scale(1.1);
+}
+.anime-upcard {         /*---for all anime box or outline---*/
   width: 230px;
   height: 480px;
   margin: 10px;

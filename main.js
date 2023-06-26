@@ -4,6 +4,7 @@ const cloud1 = document.querySelector('#clouds_1');
 const cloud2 = document.querySelector('#clouds_2');
 const text = document.querySelector('#text');
 const man = document.querySelector('#man');
+const arrow = document.querySelector('#arrow');
 
 window.addEventListener('scroll', () => {
   let value = scrollY;
@@ -12,6 +13,7 @@ window.addEventListener('scroll', () => {
   mountainRight.style.left = `${value / 0.7}px`;
   cloud1.style.left = `${value * 2}px`;
   text.style.bottom = `-${value}px`;
+  arrow.style.bottom = `-${value}px`;
 });
 
 
@@ -30,7 +32,7 @@ function fetchAnimeDetails(title, id) {
       backButton.addEventListener('click', () => {
         animeContainer.innerHTML = '';
         displayTopAnime();
-        // displayUpcomingSeason();
+        displayUpcomingSeason();
 
         const upcomingAnimeContainer = document.querySelector('.anime-row.upcoming');
         upcomingAnimeContainer.style.display = 'flex';
@@ -40,7 +42,6 @@ function fetchAnimeDetails(title, id) {
 
         heading.style.display = 'block';
         upcomingHeading.style.display = 'block';
-
       });
       animeContainer.appendChild(backButton);
 
@@ -128,6 +129,40 @@ function createAnimeCard(anime) {
   return animeCard;
 }
 
+function createAnimeUpcard(anime) {
+  const animeUpcard = document.createElement('div');
+  animeUpcard.classList.add('anime-upcard');
+
+  // Create anchor tag for the image
+  const imageLink = document.createElement('a');
+  imageLink.href = `details.html?title=${encodeURIComponent(anime.title)}`;
+
+  const image = document.createElement('img');
+  image.classList.add('anime-image');
+  image.src = anime.images.jpg.image_url;
+  image.alt = anime.title;
+  imageLink.appendChild(image);
+
+  animeUpcard.appendChild(imageLink);
+
+  const title = document.createElement('div');
+  title.classList.add('anime-title');
+  title.textContent = anime.title;
+  animeUpcard.appendChild(title);
+
+  const score = document.createElement('div');
+  score.classList.add('anime-score');
+  score.textContent = `Score: ${anime.score}`;
+  animeUpcard.appendChild(score);
+
+  const episodes = document.createElement('div');
+  episodes.classList.add('anime-episodes');
+  episodes.textContent = `Episodes: ${anime.episodes}`;
+  animeUpcard.appendChild(episodes);
+
+  return animeUpcard;
+}
+
 function displayUpcomingSeason() {
   const animeContainer = document.querySelector('.anime-row.upcoming');
   animeContainer.innerHTML = '';
@@ -138,8 +173,8 @@ function displayUpcomingSeason() {
       const upcomingAnime = data.data.slice(0, 10);
 
       upcomingAnime.forEach((anime) => {
-        const animeCard = createAnimeCard(anime);
-        animeContainer.appendChild(animeCard);
+        const animeUpcard = createAnimeUpcard(anime);
+        animeContainer.appendChild(animeUpcard);
       });
     })
     .catch((error) => {
