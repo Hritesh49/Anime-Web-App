@@ -80,7 +80,7 @@ function displayTopAnime() {
   fetch('https://api.jikan.moe/v4/top/anime')
     .then((response) => response.json())
     .then((data) => {
-      const topAnime = data.data.slice(0,10);
+      const topAnime = data.data.slice(0, 10);
 
       topAnime.forEach((anime) => {
         const animeCard = createAnimeCard(anime);
@@ -132,11 +132,10 @@ function displayUpcomingSeason() {
   const animeContainer = document.querySelector('.anime-row.upcoming');
   animeContainer.innerHTML = '';
 
-
   fetch('https://api.jikan.moe/v4/seasons/upcoming')
     .then((response) => response.json())
     .then((data) => {
-      const upcomingAnime = data.data.slice(0,10);
+      const upcomingAnime = data.data.slice(0, 10);
 
       upcomingAnime.forEach((anime) => {
         const animeCard = createAnimeCard(anime);
