@@ -68,11 +68,14 @@ function fetchAnimeDetails(title, id) {
 
       heading.style.display = 'none';
       upcomingHeading.style.display = 'none';
-      nowHeading.style.display = 'block';
+      nowHeading.style.display = 'none';
       // Hide upcoming anime container
       const upcomingAnimeContainer = document.querySelector('.anime-row.upcoming');
       upcomingAnimeContainer.style.display = 'none';
+      const nowAnimeContainer = document.querySelector('.anime-row.now');
       nowAnimeContainer.style.display='none;'
+      const now = document.querySelector('.now');
+      now.style.display='none'
     })
 
     .catch((error) => {
@@ -88,7 +91,7 @@ function displayTopAnime() {
   fetch('https://api.jikan.moe/v4/top/anime')
     .then((response) => response.json())
     .then((data) => {
-      const topAnime = data.data.slice(0, 8);
+      const topAnime = data.data.slice(0, 10);
 
       topAnime.forEach((anime) => {
         const animeCard = createAnimeCard(anime);
@@ -176,6 +179,20 @@ Right.addEventListener("click", ()=>{
   upcoming.scrollLeft += 300; 
 });
 
+const now = document.querySelector('.now');
+now.addEventListener("wheel", (evt) => {
+  // evt.preventDefault();
+  now.scrollLeft += evt.deltaY;
+});
+Left.addEventListener("click", ()=>{
+  now.style.scrollBehaviour = "smooth";
+  now.scrollLeft -= 300; 
+});
+Right.addEventListener("click", ()=>{
+  now.style.scrollBehaviour = "smooth";
+  now.scrollLeft += 300; 
+});
+
 
 function displayUpcomingSeason() {
   const animeContainer = document.querySelector('.anime-row.upcoming');
@@ -202,11 +219,11 @@ function dispalyAnimeNow(){
    fetch('https://api.jikan.moe/v4/seasons/now')
    .then((response)=>response.json())
    .then((data) => {
-    const nowAnime = data.data.slice(0, 40);
+    const nowAnime = data.data.slice(0, 20);
 
     nowAnime.forEach((anime) => {
-      const animecard = createAnimeUpcard(anime);
-      animeContainer.appendChild(animecard);
+      const animeUpcard = createAnimeUpcard(anime);
+      animeContainer.appendChild(animeUpcard);
     });
   })
   .catch((error) => {
