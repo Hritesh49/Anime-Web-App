@@ -88,7 +88,7 @@ function displayTopAnime() {
   fetch('https://api.jikan.moe/v4/top/anime')
     .then((response) => response.json())
     .then((data) => {
-      const topAnime = data.data.slice(0, 10);
+      const topAnime = data.data.slice(0, 8);
 
       topAnime.forEach((anime) => {
         const animeCard = createAnimeCard(anime);
