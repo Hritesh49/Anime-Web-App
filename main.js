@@ -33,15 +33,21 @@ function fetchAnimeDetails(title, id) {
         animeContainer.innerHTML = '';
         displayTopAnime();
         displayUpcomingSeason();
+        dispalyAnimeNow();
 
         const upcomingAnimeContainer = document.querySelector('.anime-row.upcoming');
         upcomingAnimeContainer.style.display = 'flex';
+          
+        const nowAnimeContainer = document.querySelector('.anime-row.now');
+        nowAnimeContainer.style.display = 'flex';
 
         const heading = document.querySelector('#myHeading');
         const upcomingHeading = document.querySelector('#upcomingHeading');
+        const nowHeading = document.querySelector('#nowHeading');
 
         heading.style.display = 'block';
         upcomingHeading.style.display = 'block';
+        nowHeading.style.display = 'block';
       });
       animeContainer.appendChild(backButton);
 
@@ -58,14 +64,15 @@ function fetchAnimeDetails(title, id) {
       }
       const heading = document.querySelector('#myHeading');
       const upcomingHeading = document.querySelector('#upcomingHeading');
+      const nowHeading = document.querySelector('#nowHeading');
 
       heading.style.display = 'none';
       upcomingHeading.style.display = 'none';
-
+      nowHeading.style.display = 'block';
       // Hide upcoming anime container
       const upcomingAnimeContainer = document.querySelector('.anime-row.upcoming');
       upcomingAnimeContainer.style.display = 'none';
-
+      nowAnimeContainer.style.display='none;'
     })
 
     .catch((error) => {
@@ -149,17 +156,6 @@ function createAnimeUpcard(anime) {
   title.classList.add('anime-title');
   title.textContent = anime.title;
   animeUpcard.appendChild(title);
-
-  // const score = document.createElement('div');
-  // score.classList.add('anime-score');
-  // score.textContent = `Score: ${anime.score}`;
-  // animeUpcard.appendChild(score);
-
-  // const episodes = document.createElement('div');
-  // episodes.classList.add('anime-episodes');
-  // episodes.textContent = `Episodes: ${anime.episodes}`;
-  // animeUpcard.appendChild(episodes);
-
   return animeUpcard;
 }
 
@@ -199,7 +195,25 @@ function displayUpcomingSeason() {
       console.log('Error fetching upcoming season:', error);
     });
 }
+// function to create new anime card element
+function dispalyAnimeNow(){
+  const animeContainer= document.querySelector('.anime-row.now');
+  animeContainer.innerHTML='';
+   fetch('https://api.jikan.moe/v4/seasons/now')
+   .then((response)=>response.json())
+   .then((data) => {
+    const nowAnime = data.data.slice(0, 40);
 
+    nowAnime.forEach((anime) => {
+      const animecard = createAnimeUpcard(anime);
+      animeContainer.appendChild(animecard);
+    });
+  })
+  .catch((error) => {
+    console.log('Error fetching now season:', error);
+  });
+
+}
 // Function to handle form submission and initiate search
 function handleSearch(event) {
   event.preventDefault();
@@ -218,7 +232,7 @@ searchForm.addEventListener('submit', handleSearch);
 // Display top anime and upcoming seasons initially
 displayTopAnime();
 displayUpcomingSeason();
-
+dispalyAnimeNow();
 // Retrieve the title from the URL query parameter
 const urlParams = new URLSearchParams(window.location.search);
 const title = urlParams.get('title');
