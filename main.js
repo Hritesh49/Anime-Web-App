@@ -49,6 +49,10 @@ function fetchAnimeDetails(title, id) {
         heading.style.display = 'block';
         upcomingHeading.style.display = 'block';
         nowHeading.style.display = 'block';
+        const nowdiv = document.querySelector('.nowdiv');
+        nowdiv.style.display='flex'
+        const upcoming = document.querySelector('.upcomingdiv')
+        upcoming.style.display='flex'
       });
       animeContainer.appendChild(backButton);
 
