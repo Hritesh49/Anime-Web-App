@@ -72,10 +72,10 @@ function fetchAnimeDetails(title, id) {
       // Hide upcoming anime container
       const upcomingAnimeContainer = document.querySelector('.anime-row.upcoming');
       upcomingAnimeContainer.style.display = 'none';
-      const nowAnimeContainer = document.querySelector('.anime-row.now');
-      nowAnimeContainer.style.display='none;'
       const now = document.querySelector('.now');
       now.style.display='none'
+      const upcoming= document.querySelector('.upcoming')
+      upcoming.display='none'
     })
 
     .catch((error) => {
@@ -138,6 +138,40 @@ function createAnimeCard(anime) {
 
   return animeCard;
 }
+function createAnimeNowcard(anime) {
+  const animeNowcard = document.createElement('div');
+  animeNowcard.classList.add('anime-nowcard');
+
+  // Create anchor tag for the image
+  const imageLink = document.createElement('a');
+  imageLink.href = `details.html?title=${encodeURIComponent(anime.title)}`;
+
+  const image = document.createElement('img');
+  image.classList.add('anime-image');
+  image.src = anime.images.jpg.image_url;
+  image.alt = anime.title;
+  imageLink.appendChild(image);
+
+  animeNowcard.appendChild(imageLink);
+
+  const title = document.createElement('div');
+  title.classList.add('anime-title');
+  title.textContent = anime.title;
+  animeNowcard.appendChild(title);
+
+  const score = document.createElement('div');
+  score.classList.add('anime-score');
+  score.textContent = `Score: ${anime.score}`;
+  animeNowcard.appendChild(score);
+
+  const episodes = document.createElement('div');
+  episodes.classList.add('anime-episodes');
+  episodes.textContent = `Episodes: ${anime.episodes}`;
+  animeNowcard.appendChild(episodes);
+
+  return animeNowcard;
+}
+
 
 function createAnimeUpcard(anime) {
   const animeUpcard = document.createElement('div');
@@ -180,15 +214,18 @@ Right.addEventListener("click", ()=>{
 });
 
 const now = document.querySelector('.now');
+const Lef = document.querySelector('.lef');
+const Righ = document.querySelector('.righ');
+
 now.addEventListener("wheel", (evt) => {
   // evt.preventDefault();
   now.scrollLeft += evt.deltaY;
 });
-Left.addEventListener("click", ()=>{
+Lef.addEventListener("click", ()=>{
   now.style.scrollBehaviour = "smooth";
   now.scrollLeft -= 300; 
 });
-Right.addEventListener("click", ()=>{
+Righ.addEventListener("click", ()=>{
   now.style.scrollBehaviour = "smooth";
   now.scrollLeft += 300; 
 });
@@ -222,8 +259,8 @@ function dispalyAnimeNow(){
     const nowAnime = data.data.slice(0, 20);
 
     nowAnime.forEach((anime) => {
-      const animeUpcard = createAnimeUpcard(anime);
-      animeContainer.appendChild(animeUpcard);
+      const animeNowcard = createAnimeNowcard(anime);
+      animeContainer.appendChild(animeNowcard);
     });
   })
   .catch((error) => {

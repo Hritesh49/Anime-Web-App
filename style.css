@@ -373,7 +373,19 @@ h2 {
   cursor: pointer;
   filter: invert(37%) sepia(35%) saturate(891%) hue-rotate(151deg) brightness(93%) contrast(94%);
 }
+.lef, .righ {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  cursor: pointer;
+  filter: invert(37%) sepia(35%) saturate(891%) hue-rotate(151deg) brightness(93%) contrast(94%);
+}
 .left {
+  top: 40%;
+  left: -100px;
+}
+.lef {
   top: 40%;
   left: -100px;
 }
@@ -382,7 +394,10 @@ h2 {
   top: 40%;
   right: -100px;
 }
-
+.righ{
+  top: 40%;
+  right: -100px;
+}
 
 .upcoming {
   overflow-x: auto;
@@ -459,14 +474,37 @@ h2 {
   transition: transform .2s;
 }
 
+.anime-nowcard {         /*---for all anime box or outline---*/
+  min-width: 200px;
+  max-width: 200px;
+  height: auto;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: rgb(210, 210, 210);
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.645);
+  z-index: 2;
+  transition: transform .2s;
+}
 .anime-upcard:first-child {
+  margin-left: 50px;
+}
+.anime-nowcard:first-child {
   margin-left: 50px;
 }
 .anime-upcard:last-child {
   margin-right: 50px;
 }
+.anime-nowcard:last-child {
+  margin-right: 50px;
+}
 
 .anime-upcard:hover{
+  transform:scale(1.05);
+}
+.anime-nowcard:hover{
   transform:scale(1.05);
 }
 
