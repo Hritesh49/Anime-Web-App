@@ -17,6 +17,7 @@ window.addEventListener('scroll', () => {
 });
 
 
+
 // Function to fetch anime details by title search
 function fetchAnimeDetails(title, id) {
   fetch(`https://api.jikan.moe/v4/anime?q=${title}`)
@@ -48,6 +49,10 @@ function fetchAnimeDetails(title, id) {
         heading.style.display = 'block';
         upcomingHeading.style.display = 'block';
         nowHeading.style.display = 'block';
+        const nowdiv = document.querySelector('.nowdiv');
+        nowdiv.style.display='flex'
+        const upcoming = document.querySelector('.upcomingdiv')
+        upcoming.style.display='flex'
       });
       animeContainer.appendChild(backButton);
 
@@ -74,8 +79,10 @@ function fetchAnimeDetails(title, id) {
       upcomingAnimeContainer.style.display = 'none';
       const now = document.querySelector('.now');
       now.style.display='none'
-      const upcoming= document.querySelector('.upcoming')
-      upcoming.display='none'
+      const nowdiv = document.querySelector('.nowdiv');
+      nowdiv.style.display='none'
+      const upcoming = document.querySelector('.upcomingdiv')
+      upcoming.style.display='none'
     })
 
     .catch((error) => {
