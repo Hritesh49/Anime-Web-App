@@ -53,7 +53,7 @@ const triviaQuestions = [
     correctAnswer: 'United States'
   },
   {
-    question: 'Which institute did L, Near comr from?',
+    question: 'In Deathnote, Which institute did L, Near come from?',
     choices: ['St. Jupiter Home', 'The Wammys House', 'Calabrian Children Home', 'Kurn Hatin'],
     correctAnswer: 'The Wammys House'
   }

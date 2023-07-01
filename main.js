@@ -227,3 +227,5 @@ const title = urlParams.get('title');
 if (title) {
   fetchAnimeDetails(title);
 }
+
+
