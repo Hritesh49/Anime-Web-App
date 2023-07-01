@@ -132,7 +132,7 @@ a {
 
 /* charactes css */
 
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
   .menu-button-container {
     display: flex;
   }
