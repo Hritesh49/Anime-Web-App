@@ -238,6 +238,7 @@ section img {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;l
 
 }
 
@@ -352,7 +353,7 @@ h2 {
   left: 0;
   top: 0;
   z-index: 3;
-  background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), transparent);
+  background-image: linear-gradient(90deg, #c4dff1, transparent);
   border-radius: 10px;
 } 
 
@@ -364,41 +365,41 @@ h2 {
   right: 0;
   top: 0;
   z-index: 3;
-  background-image: linear-gradient(-90deg, rgba(255, 255, 255, 1), transparent);
+  background-image: linear-gradient(-90deg, #c4dff1, transparent);
   border-radius: 10px;
 } 
 .left, .right {
   position: absolute;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50px;
   cursor: pointer;
   filter: invert(37%) sepia(35%) saturate(891%) hue-rotate(151deg) brightness(93%) contrast(94%);
 }
 .lef, .righ {
   position: absolute;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50px;
   cursor: pointer;
   filter: invert(37%) sepia(35%) saturate(891%) hue-rotate(151deg) brightness(93%) contrast(94%);
 }
 .left {
   top: 40%;
-  left: -100px;
+  left: -80px;
 }
 .lef {
   top: 40%;
-  left: -100px;
+  left: -80px;
 }
 
 .right {
   top: 40%;
-  right: -100px;
+  right: -80px;
 }
 .righ{
   top: 40%;
-  right: -100px;
+  right: -80px;
 }
 
 .upcoming {
@@ -438,7 +439,7 @@ h2 {
   left: 0;
   top: 0;
   z-index: 3;
-  background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), transparent);
+  background-image: linear-gradient(90deg, #c4dff1, transparent);
   border-radius:10px ;
 } 
 
@@ -450,7 +451,7 @@ h2 {
   right: 0;
   top: 0;
   z-index: 3;
-  background-image: linear-gradient(-90deg, rgba(255, 255, 255, 1), transparent);
+  background-image: linear-gradient(-90deg, #c4dff1, transparent);
   border-radius: 10px;
 } 
 .now {
@@ -493,10 +494,10 @@ h2 {
   transition: transform .2s;
 }
 .anime-upcard:first-child {
-  margin-left: 50px;
+  margin-left: 40px;
 }
 .anime-nowcard:first-child {
-  margin-left: 50px;
+  margin-left: 40px;
 }
 .anime-upcard:last-child {
   margin-right: 50px;
