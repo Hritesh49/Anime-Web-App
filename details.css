@@ -192,9 +192,10 @@ a {
 }
 
 #anime-details {
-  border: 25px solid #0D47A1;
+  border: 25px solid #708ebb;
   margin: 10px;
-  border-radius: 5px;
+  border-radius: 8px;
+  
 
 }
 
@@ -206,7 +207,7 @@ a {
   padding: 10px;
   padding-top: 25px;
   gap: 10px;
-
+  background-color:  #c4dff1;
 }
 
 .anime-image {
@@ -245,7 +246,7 @@ a {
 /* character galllery */
 
 #character-list {
-  border: 30px solid #0D47A1;
+  border: 30px solid #829ec7;
   margin: 10px;
   border-radius: 5px;
   display: flex;
@@ -263,13 +264,15 @@ a {
   list-style: none;
   justify-content: space-around;
   align-items: center;
-  border: 2px solid #0D47A1;
+  border: 2px solid #d7d7dc;
   margin: 10px;
   border-radius: 5px;
   padding: 20px;
   font-family: 'Roboto Mono', monospace;
   font-size: 20px;
   font-weight: 600;
+  background-color: #d1d4d4;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.645)
 }
 
 #character-list li:hover {
