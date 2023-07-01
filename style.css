@@ -551,13 +551,11 @@ h2 {
   font-size: 13px;
 }
 
-footer {
+.copyright {
   text-align: center;
   padding: 30px;
   font-size: 1.5rem;
-  background-color: #262525;
   color: whitesmoke;
-  box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.525);
   position: relative;
   z-index: 4;
 }
@@ -627,5 +625,31 @@ footer {
   100%{
     transform:scale(1);
     opacity:0;
+  }
+}
+
+.foot{
+  background-color: blanchedalmond;
+  display: flex;
+  flex-direction: row;
+  color: black;
+  height:150px;
+}
+.about_us {
+  display: flex;
+  flex-wrap: wrap;
+  color: black;
+}
+
+.designer {
+  flex-basis: 50%;
+  color: black;
+}
+
+
+
+@media (max-width: 480px) {
+  .about_us,.contact_us{
+    flex-basis: 100%; 
   }
 }
