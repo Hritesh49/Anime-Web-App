@@ -11,11 +11,11 @@
 </head>
 
 <body>
-  
+
   <div class="loader-bg">
     <div class="loader"></div>
   </div>
-  
+
   <section class="top-nav">
     <div class="name">
       The Ultimate Escape
@@ -31,7 +31,7 @@
       <li><a href="quiz.html">Quiz</a></li>
     </ul>
   </section>
-  
+
   <section id="top">
     <img src="assets/bg.jpg" id="bg">
     <h2 id="text">Anime <br> &#8595;</h2>
@@ -52,31 +52,38 @@
       <button type="submit" class="search-btn">Search</button>
     </form>
 
+    <div id="anime-searchcontainer">
+      <div class="anime-row search"></div>
+    </div>
+
     <div id="anime-container">
       <h2 id="myHeading">Top Anime</h2>
-      <div class="anime-row">
-        <div class="anime-row-content"></div>
+      <div class="topdiv">
+        <img src="backward.png" alt="go left" class="topleft">
+        <img src="forward.png" alt="go right" class="topright">
+        <div class="anime-row content"></div>
       </div>
     </div>
+  </div>
 
-    <div id="now-container">
-      <h2 id="nowHeading">Airing Anime</h2>
-      <div class="nowdiv">
-        <img src="backward.png" alt="go left" class="lef">
-        <img src="forward.png" alt="go right" class="righ">
-        <div class="anime-row now"></div>
-      </div>
+  <div id="now-container">
+    <h2 id="nowHeading">Airing Anime</h2>
+    <div class="nowdiv">
+      <img src="backward.png" alt="go left" class="nowleft">
+      <img src="forward.png" alt="go right" class="nowright">
+      <div class="anime-row now"></div>
     </div>
+  </div>
 
-    <div id="upcoming-container">
-      <h2 id="upcomingHeading">Upcoming Anime</h2>
-      <div class="upcomingdiv">
-        <img src="backward.png" alt="go left" class="left" >
-        <img src="forward.png" alt="go right" class="right">
-        <div class="anime-row upcoming">
-        </div>
+  <div id="upcoming-container">
+    <h2 id="upcomingHeading">Upcoming Anime</h2>
+    <div class="upcomingdiv">
+      <img src="backward.png" alt="go left" class="upcomingleft">
+      <img src="forward.png" alt="go right" class="upcomingright">
+      <div class="anime-row upcoming">
       </div>
     </div>
+  </div>
 
   </div>
 
@@ -107,14 +114,12 @@
 
   <script src="main.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-        setTimeout(function(){
-            $('.loader-bg').fadeToggle();
-        }, 1500);
-    </script>
-  
+  <script>
+    setTimeout(function () {
+      $('.loader-bg').fadeToggle();
+    }, 1500);
+  </script>
+
 </body>
 
 </html>
-
- 
