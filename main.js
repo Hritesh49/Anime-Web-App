@@ -24,7 +24,7 @@ function fetchAnimeDetails(title, id) {
     .then((response) => response.json())
     .then((data) => {
 
-      const animeContainer = document.querySelector('.anime-row-content');
+      const animeContainer = document.querySelector('.anime-row.search');
       animeContainer.innerHTML = '';
 
       const backButton = document.createElement('button');
@@ -53,6 +53,8 @@ function fetchAnimeDetails(title, id) {
         nowdiv.style.display='flex'
         const upcoming = document.querySelector('.upcomingdiv')
         upcoming.style.display='flex'
+        const top = document.querySelector('.topdiv')
+        top.style.display='flex'
       });
       animeContainer.appendChild(backButton);
 
@@ -60,11 +62,11 @@ function fetchAnimeDetails(title, id) {
       if (data.data.length === 0) {
         const noResultsMessage = document.createElement('p');
         noResultsMessage.textContent = 'No results found.';
-        animeContainer.appendChild(noResultsMessage);
+        animehContainer.appendChild(noResultsMessage);
       } else {
         data.data.forEach((anime) => {
-          const animeCard = createAnimeCard(anime);
-          animeContainer.appendChild(animeCard);
+          const animesearchCard = createAnimesearchCard(anime);
+          animeContainer.appendChild(animesearchCard);
         });
       }
       const heading = document.querySelector('#myHeading');
@@ -83,6 +85,8 @@ function fetchAnimeDetails(title, id) {
       nowdiv.style.display='none'
       const upcoming = document.querySelector('.upcomingdiv')
       upcoming.style.display='none'
+      const top= document.querySelector('.topdiv')
+      top.style.display='none'
     })
 
     .catch((error) => {
@@ -92,13 +96,13 @@ function fetchAnimeDetails(title, id) {
 
 // Function to display the top anime
 function displayTopAnime() {
-  const animeContainer = document.querySelector('.anime-row-content');
+  const animeContainer = document.querySelector('.anime-row.content');
   animeContainer.innerHTML = '';
 
   fetch('https://api.jikan.moe/v4/top/anime')
     .then((response) => response.json())
     .then((data) => {
-      const topAnime = data.data.slice(0, 10);
+      const topAnime = data.data.slice(0, 40);
 
       topAnime.forEach((anime) => {
         const animeCard = createAnimeCard(anime);
@@ -179,6 +183,73 @@ function createAnimeNowcard(anime) {
   return animeNowcard;
 }
 
+function createAnimesearchCard(anime) {
+  const animesearchCard = document.createElement('div');
+  animesearchCard.classList.add('anime-searchcard');
+
+  // Create anchor tag for the image
+  const imageLink = document.createElement('a');
+  imageLink.href = `details.html?title=${encodeURIComponent(anime.title)}`;
+
+  const image = document.createElement('img');
+  image.classList.add('anime-image');
+  image.src = anime.images.jpg.image_url;
+  image.alt = anime.title;
+  imageLink.appendChild(image);
+
+  animesearchCard.appendChild(imageLink);
+
+  const title = document.createElement('div');
+  title.classList.add('anime-title');
+  title.textContent = anime.title;
+  animesearchCard.appendChild(title);
+
+  const score = document.createElement('div');
+  score.classList.add('anime-score');
+  score.textContent = `Score: ${anime.score}`;
+  animesearchCard.appendChild(score);
+
+  const episodes = document.createElement('div');
+  episodes.classList.add('anime-episodes');
+  episodes.textContent = `Episodes: ${anime.episodes}`;
+  animesearchCard.appendChild(episodes);
+
+  return animesearchCard;
+}
+function createAnimeNowcard(anime) {
+  const animeNowcard = document.createElement('div');
+  animeNowcard.classList.add('anime-nowcard');
+
+  // Create anchor tag for the image
+  const imageLink = document.createElement('a');
+  imageLink.href = `details.html?title=${encodeURIComponent(anime.title)}`;
+
+  const image = document.createElement('img');
+  image.classList.add('anime-image');
+  image.src = anime.images.jpg.image_url;
+  image.alt = anime.title;
+  imageLink.appendChild(image);
+
+  animeNowcard.appendChild(imageLink);
+
+  const title = document.createElement('div');
+  title.classList.add('anime-title');
+  title.textContent = anime.title;
+  animeNowcard.appendChild(title);
+
+  const score = document.createElement('div');
+  score.classList.add('anime-score');
+  score.textContent = `Score: ${anime.score}`;
+  animeNowcard.appendChild(score);
+
+  const episodes = document.createElement('div');
+  episodes.classList.add('anime-episodes');
+  episodes.textContent = `Episodes: ${anime.episodes}`;
+  animeNowcard.appendChild(episodes);
+
+  return animeNowcard;
+}
+
 
 function createAnimeUpcard(anime) {
   const animeUpcard = document.createElement('div');
@@ -204,8 +275,8 @@ function createAnimeUpcard(anime) {
 }
 
 const upcoming = document.querySelector('.upcoming');
-const Left = document.querySelector('.left');
-const Right = document.querySelector('.right');
+const Left = document.querySelector('.upcomingleft');
+const Right = document.querySelector('.upcomingright');
 
 upcoming.addEventListener("wheel", (evt) => {
   // evt.preventDefault();
@@ -220,19 +291,37 @@ Right.addEventListener("click", ()=>{
   upcoming.scrollLeft += 300; 
 });
 
+const content = document.querySelector('.content');
+const TopLeft = document.querySelector('.topleft');
+const TopRight = document.querySelector('.topright');
+
+content.addEventListener("wheel", (evt) => {
+  // evt.preventDefault();
+  content.scrollLeft += evt.deltaY;
+});
+TopLeft.addEventListener("click", ()=>{
+  content.style.scrollBehaviour = "smooth";
+  content.scrollLeft -= 300; 
+});
+TopRight.addEventListener("click", ()=>{
+  content.style.scrollBehaviour = "smooth";
+  content.scrollLeft += 300; 
+});
+
+
 const now = document.querySelector('.now');
-const Lef = document.querySelector('.lef');
-const Righ = document.querySelector('.righ');
+const NowLeft = document.querySelector('.nowleft');
+const NowRight = document.querySelector('.nowright');
 
 now.addEventListener("wheel", (evt) => {
   // evt.preventDefault();
   now.scrollLeft += evt.deltaY;
 });
-Lef.addEventListener("click", ()=>{
+NowLeft.addEventListener("click", ()=>{
   now.style.scrollBehaviour = "smooth";
   now.scrollLeft -= 300; 
 });
-Righ.addEventListener("click", ()=>{
+NowRight.addEventListener("click", ()=>{
   now.style.scrollBehaviour = "smooth";
   now.scrollLeft += 300; 
 });
