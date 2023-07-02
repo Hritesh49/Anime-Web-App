@@ -307,24 +307,79 @@ h2 {
   font-family: 'Montserrat', serif;
   text-shadow: 1px 2px 10px #9ec0f3;
 }
-
-#anime-container {
+#anime-searchcontainer {
   /*-----all text and anime image----*/
   margin: 40px 0 10px 0;
 }
+.search{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0 30px 0;
+  }
 
 
-.anime-row-content {
-  /*----for top anime-----*/
+#anime-container {
+  /*-----all text and anime image----*/
+  display: flex;
   width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+
+.topdiv {      /*------for upcoming anime------ */
+  position: relative;
+  width: 80%;
   height: auto;
+  /* background: #e2eef4; */
+  background-color:  #c4dff1;
+  /* background: linear-gradient(to right, whitesmoke, #1F6E8C, whitesmoke); */
+  padding: 20px 0px ;
+  margin-top: 15px;
+}
+
+.topdiv::before {
+  position: absolute;
+  height: 100%;
+  width: 100px;
+  content: '';
+  left: 0;
+  top: 0;
+  z-index: 3;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), transparent);
+  border-radius: 10px;
+} 
+
+.topdiv::after {
+  position: absolute;
+  height: 100%;
+  width: 100px;
+  content: '';
+  right: 0;
+  top: 0;
+  z-index: 3;
+  background-image: linear-gradient(-90deg, rgba(255, 255, 255, 1), transparent);
+  border-radius: 10px;
+} 
+.content {
+  overflow-x: auto;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  margin: 10px 0 30px 0;
 }
+
+.content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 
 #upcoming-container {
   display: flex;
@@ -370,9 +425,21 @@ h2 {
   background-image: linear-gradient(-90deg, #c4dff1, transparent);
   border-radius: 10px;
 }
+<<<<<<< HEAD
 
 .left,
 .right {
+=======
+.topleft, .topright {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  cursor: pointer;
+  filter: invert(37%) sepia(35%) saturate(891%) hue-rotate(151deg) brightness(93%) contrast(94%);
+} 
+.upcomingleft, .upcomingright {
+>>>>>>> 726e7fa87a20746dc1aac8c9a1a85adaa3a8880f
   position: absolute;
   width: 60px;
   height: 60px;
@@ -380,9 +447,13 @@ h2 {
   cursor: pointer;
   filter: invert(37%) sepia(35%) saturate(891%) hue-rotate(151deg) brightness(93%) contrast(94%);
 }
+<<<<<<< HEAD
 
 .lef,
 .righ {
+=======
+.nowleft, .nowright {
+>>>>>>> 726e7fa87a20746dc1aac8c9a1a85adaa3a8880f
   position: absolute;
   width: 60px;
   height: 60px;
@@ -390,23 +461,43 @@ h2 {
   cursor: pointer;
   filter: invert(37%) sepia(35%) saturate(891%) hue-rotate(151deg) brightness(93%) contrast(94%);
 }
+<<<<<<< HEAD
 
 .left {
+=======
+.upcomingleft {
+>>>>>>> 726e7fa87a20746dc1aac8c9a1a85adaa3a8880f
   top: 40%;
   left: -80px;
 }
+<<<<<<< HEAD
 
 .lef {
+=======
+.nowleft {
+  top: 40%;
+  left: -100px;
+}
+.topleft {
+>>>>>>> 726e7fa87a20746dc1aac8c9a1a85adaa3a8880f
   top: 40%;
   left: -80px;
 }
 
-.right {
+.upcomingright {
   top: 40%;
   right: -80px;
 }
+<<<<<<< HEAD
 
 .righ {
+=======
+.nowright{
+  top: 40%;
+  right: -100px;
+}
+.topright{
+>>>>>>> 726e7fa87a20746dc1aac8c9a1a85adaa3a8880f
   top: 40%;
   right: -80px;
 }
@@ -517,12 +608,21 @@ h2 {
 .anime-nowcard:first-child {
   margin-left: 40px;
 }
+<<<<<<< HEAD
+=======
+.anime-card:first-child {
+  margin-left: 50px;
+}
+>>>>>>> 726e7fa87a20746dc1aac8c9a1a85adaa3a8880f
 
 .anime-upcard:last-child {
   margin-right: 50px;
 }
 
 .anime-nowcard:last-child {
+  margin-right: 50px;
+}
+.anime-card:last-child {
   margin-right: 50px;
 }
 
@@ -533,8 +633,26 @@ h2 {
 .anime-nowcard:hover {
   transform: scale(1.05);
 }
+.anime-card:hover{
+  transform:scale(1.05);
+}
 
 .anime-card {
+  /*---for all anime box or outline---*/
+  min-width: 200px;
+  max-width: 200px;
+  height: auto;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: rgb(210, 210, 210);
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.645);
+  z-index: 2;
+  transition: transform .2s;
+}
+.anime-searchcard {
   /*---for all anime box or outline---*/
   width: 230px;
   height: 480px;
@@ -548,9 +666,14 @@ h2 {
   background-color: #e7e1e1;
   border-radius: 8px;
 }
+<<<<<<< HEAD
 
 .anime-card:hover {
   transform: scale(1.05);
+=======
+.anime-card:hover{
+  transform:scale(1.05);
+>>>>>>> 726e7fa87a20746dc1aac8c9a1a85adaa3a8880f
 }
 
 
