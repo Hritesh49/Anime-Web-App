@@ -79,8 +79,7 @@ function fetchAnimeDetails(title) {
           synopsis.textContent = `Synopsis: ${anime.synopsis}`;
           animeCard.appendChild(synopsis);
         }
-      
-        
+    
         
         
 
@@ -107,7 +106,7 @@ console.log(title);
 
 
 
-// Make an HTTP POST request to AniList API for Dragon Ball Z characters
+
 fetch('https://graphql.anilist.co', {
   method: 'POST',
   headers: {
@@ -163,12 +162,79 @@ fetch('https://graphql.anilist.co', {
 
       characterList.appendChild(listItem);
      
+      const fetchAnimeReviews = async (animeTitle) => {
+        const query = `
+          query ($search: String) {
+            Media(search: $search, type: ANIME) {
+              title {
+                romaji
+              }
+              reviews(perPage: 10) {
+                nodes {
+                  rating
+                  summary
+                  user {
+                    name
+                  }
+                }
+              }
+            }
+          }
+        `;
+      
+        const variables = {
+          search: animeTitle
+        };
+      
+        const response = await fetch('https://graphql.anilist.co', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            query,
+            variables
+          }),
+        });
+      
+        const data = await response.json();
+        const animeData = data.data.Media;
+      
+        if (animeData) {
+          const title = animeData.title.romaji;
+          const reviews = animeData.reviews.nodes;
+      
+          const reviewsContainer = document.getElementById('reviewsContainer');
+          reviewsContainer.innerHTML = `<h2>Reviews for ${title}:</h2>`;
+      
+          reviews.forEach(review => {
+            const rating = review.rating;
+            const summary = review.summary;
+            const user = review.user.name;
+      
+            const reviewElement = document.createElement('div');
+            reviewElement.innerHTML = `
+              <strong>User:</strong> ${user}<br>
+              <strong>Rating:</strong> ${rating}<br>
+              <strong>Summary:</strong> ${summary}<br><br>
+            `;
+      
+            reviewsContainer.appendChild(reviewElement);
+          });
+        }
+      };
+      
+      fetchAnimeReviews(t);
+      
       
     });
   })
   .catch(error => {
     console.error('Error:', error);
   });
+
+  
 
 
 
