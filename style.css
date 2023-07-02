@@ -337,7 +337,7 @@ h2 {
 
 .topdiv {      /*------for upcoming anime------ */
   position: relative;
-  width: 80%;
+  width: 85%;
   height: auto;
   /* background: #e2eef4; */
   background-color:  #c4dff1;
@@ -354,7 +354,7 @@ h2 {
   left: 0;
   top: 0;
   z-index: 3;
-  background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), transparent);
+  background-image: linear-gradient(90deg, #c4dff1, transparent);
   border-radius: 10px;
 } 
 
@@ -366,7 +366,7 @@ h2 {
   right: 0;
   top: 0;
   z-index: 3;
-  background-image: linear-gradient(-90deg, rgba(255, 255, 255, 1), transparent);
+  background-image: linear-gradient(-90deg, #c4dff1, transparent);
   border-radius: 10px;
 } 
 .content {
@@ -425,21 +425,15 @@ h2 {
   background-image: linear-gradient(-90deg, #c4dff1, transparent);
   border-radius: 10px;
 }
-<<<<<<< HEAD
-
-.left,
-.right {
-=======
 .topleft, .topright {
   position: absolute;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50px;
   cursor: pointer;
   filter: invert(37%) sepia(35%) saturate(891%) hue-rotate(151deg) brightness(93%) contrast(94%);
 } 
 .upcomingleft, .upcomingright {
->>>>>>> 726e7fa87a20746dc1aac8c9a1a85adaa3a8880f
   position: absolute;
   width: 60px;
   height: 60px;
@@ -447,13 +441,7 @@ h2 {
   cursor: pointer;
   filter: invert(37%) sepia(35%) saturate(891%) hue-rotate(151deg) brightness(93%) contrast(94%);
 }
-<<<<<<< HEAD
-
-.lef,
-.righ {
-=======
 .nowleft, .nowright {
->>>>>>> 726e7fa87a20746dc1aac8c9a1a85adaa3a8880f
   position: absolute;
   width: 60px;
   height: 60px;
@@ -461,45 +449,30 @@ h2 {
   cursor: pointer;
   filter: invert(37%) sepia(35%) saturate(891%) hue-rotate(151deg) brightness(93%) contrast(94%);
 }
-<<<<<<< HEAD
-
-.left {
-=======
 .upcomingleft {
->>>>>>> 726e7fa87a20746dc1aac8c9a1a85adaa3a8880f
   top: 40%;
-  left: -80px;
+  left: -60px;
 }
-<<<<<<< HEAD
-
-.lef {
-=======
 .nowleft {
   top: 40%;
-  left: -100px;
+  left: -60px;
 }
 .topleft {
->>>>>>> 726e7fa87a20746dc1aac8c9a1a85adaa3a8880f
   top: 40%;
-  left: -80px;
+  left: -60px;
 }
 
 .upcomingright {
   top: 40%;
-  right: -80px;
+  right: -60px;
 }
-<<<<<<< HEAD
-
-.righ {
-=======
 .nowright{
   top: 40%;
-  right: -100px;
+  right: -60px;
 }
 .topright{
->>>>>>> 726e7fa87a20746dc1aac8c9a1a85adaa3a8880f
   top: 40%;
-  right: -80px;
+  right: -60px;
 }
 
 .upcoming {
@@ -608,12 +581,9 @@ h2 {
 .anime-nowcard:first-child {
   margin-left: 40px;
 }
-<<<<<<< HEAD
-=======
 .anime-card:first-child {
-  margin-left: 50px;
+  margin-left: 30px;
 }
->>>>>>> 726e7fa87a20746dc1aac8c9a1a85adaa3a8880f
 
 .anime-upcard:last-child {
   margin-right: 50px;
@@ -666,14 +636,9 @@ h2 {
   background-color: #e7e1e1;
   border-radius: 8px;
 }
-<<<<<<< HEAD
 
 .anime-card:hover {
   transform: scale(1.05);
-=======
-.anime-card:hover{
-  transform:scale(1.05);
->>>>>>> 726e7fa87a20746dc1aac8c9a1a85adaa3a8880f
 }
 
 
