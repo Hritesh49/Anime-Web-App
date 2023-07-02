@@ -6,6 +6,7 @@
   box-sizing: border-box;
   font-family: 'Montserrat', serif;
   scroll-behavior: smooth;
+  text-decoration: none;
 }
 
 body {
@@ -203,7 +204,7 @@ a {
   right: auto;
 }
 
-#emoji{
+#emoji {
   z-index: 99;
 }
 
@@ -238,8 +239,8 @@ section img {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;l
-
+  margin-top: 10px;
+  
 }
 
 
@@ -334,14 +335,15 @@ h2 {
   margin-bottom: 20px;
 }
 
-.upcomingdiv {      /*------for upcoming anime------ */
+.upcomingdiv {
+  /*------for upcoming anime------ */
   position: relative;
   width: 80%;
   height: auto;
   /* background: #e2eef4; */
-  background-color:  #c4dff1;
+  background-color: #c4dff1;
   /* background: linear-gradient(to right, whitesmoke, #1F6E8C, whitesmoke); */
-  padding: 20px 0px ;
+  padding: 20px 0px;
   margin-top: 15px;
 }
 
@@ -355,7 +357,7 @@ h2 {
   z-index: 3;
   background-image: linear-gradient(90deg, #c4dff1, transparent);
   border-radius: 10px;
-} 
+}
 
 .upcomingdiv::after {
   position: absolute;
@@ -367,8 +369,10 @@ h2 {
   z-index: 3;
   background-image: linear-gradient(-90deg, #c4dff1, transparent);
   border-radius: 10px;
-} 
-.left, .right {
+}
+
+.left,
+.right {
   position: absolute;
   width: 60px;
   height: 60px;
@@ -376,7 +380,9 @@ h2 {
   cursor: pointer;
   filter: invert(37%) sepia(35%) saturate(891%) hue-rotate(151deg) brightness(93%) contrast(94%);
 }
-.lef, .righ {
+
+.lef,
+.righ {
   position: absolute;
   width: 60px;
   height: 60px;
@@ -384,10 +390,12 @@ h2 {
   cursor: pointer;
   filter: invert(37%) sepia(35%) saturate(891%) hue-rotate(151deg) brightness(93%) contrast(94%);
 }
+
 .left {
   top: 40%;
   left: -80px;
 }
+
 .lef {
   top: 40%;
   left: -80px;
@@ -397,7 +405,8 @@ h2 {
   top: 40%;
   right: -80px;
 }
-.righ{
+
+.righ {
   top: 40%;
   right: -80px;
 }
@@ -412,6 +421,7 @@ h2 {
   width: 0;
   height: 0;
 }
+
 #now-container {
   display: flex;
   width: 100%;
@@ -420,14 +430,16 @@ h2 {
   align-items: center;
   margin-bottom: 20px;
 }
-.nowdiv {      /*------for upcoming anime------ */
+
+.nowdiv {
+  /*------for upcoming anime------ */
   position: relative;
   width: 80%;
   height: auto;
   /* background: #e2eef4; */
-  background-color:  #c4dff1;
+  background-color: #c4dff1;
   /* background: linear-gradient(to right, whitesmoke, #1F6E8C, whitesmoke); */
-  padding: 20px 0px ;
+  padding: 20px 0px;
   margin-top: 15px;
 }
 
@@ -440,8 +452,8 @@ h2 {
   top: 0;
   z-index: 3;
   background-image: linear-gradient(90deg, #c4dff1, transparent);
-  border-radius:10px ;
-} 
+  border-radius: 10px;
+}
 
 .nowdiv::after {
   position: absolute;
@@ -453,7 +465,8 @@ h2 {
   z-index: 3;
   background-image: linear-gradient(-90deg, #c4dff1, transparent);
   border-radius: 10px;
-} 
+}
+
 .now {
   overflow-x: auto;
   display: flex;
@@ -464,7 +477,9 @@ h2 {
   width: 0;
   height: 0;
 }
-.anime-upcard {         /*---for all anime box or outline---*/
+
+.anime-upcard {
+  /*---for all anime box or outline---*/
   min-width: 200px;
   max-width: 200px;
   height: auto;
@@ -479,7 +494,8 @@ h2 {
   transition: transform .2s;
 }
 
-.anime-nowcard {         /*---for all anime box or outline---*/
+.anime-nowcard {
+  /*---for all anime box or outline---*/
   min-width: 200px;
   max-width: 200px;
   height: auto;
@@ -493,24 +509,29 @@ h2 {
   z-index: 2;
   transition: transform .2s;
 }
+
 .anime-upcard:first-child {
   margin-left: 40px;
 }
+
 .anime-nowcard:first-child {
   margin-left: 40px;
 }
+
 .anime-upcard:last-child {
   margin-right: 50px;
 }
+
 .anime-nowcard:last-child {
   margin-right: 50px;
 }
 
-.anime-upcard:hover{
-  transform:scale(1.05);
+.anime-upcard:hover {
+  transform: scale(1.05);
 }
-.anime-nowcard:hover{
-  transform:scale(1.05);
+
+.anime-nowcard:hover {
+  transform: scale(1.05);
 }
 
 .anime-card {
@@ -528,8 +549,8 @@ h2 {
   border-radius: 8px;
 }
 
-.anime-card:hover{
-  transform:scale(1.05);
+.anime-card:hover {
+  transform: scale(1.05);
 }
 
 
@@ -552,16 +573,6 @@ h2 {
   font-size: 13px;
 }
 
-.copyright {
-  text-align: center;
-  padding: 30px;
-  font-size: 1.5rem;
-  color: whitesmoke;
-  position: relative;
-  z-index: 4;
-}
-
-
 
 
 /* #preloader{
@@ -574,83 +585,104 @@ h2 {
   overflow: visible;
 } */
 
-.loader-bg{
+.loader-bg {
   position: fixed;
-  z-index:999999;
+  z-index: 999999;
   background: #fff;
-  width:100%;
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.loader{
-  border:0 solid transparent;
-  border-radius:50%;
-  width:150px;
+.loader {
+  border: 0 solid transparent;
+  border-radius: 50%;
+  width: 150px;
   height: 150px;
   position: absolute;
-  top:calc(50vh-75px);
-  left:calc(50vw-75px);
-  
+  top: calc(50vh-75px);
+  left: calc(50vw-75px);
+
   justify-content: center;
   align-items: center;
 }
 
-.loader:before, .loader:after{
+.loader:before,
+.loader:after {
   content: '';
-  border:1em solid #678aec;
-  border-radius:50%;
-  width:inherit;
+  border: 1em solid #678aec;
+  border-radius: 50%;
+  width: inherit;
   height: inherit;
-  position:absolute;
-  top:0;
-  left:0;
+  position: absolute;
+  top: 0;
+  left: 0;
   animation: loader 2s linear infinite;
-  opacity:0;
+  opacity: 0;
 }
 
-.loader:before{
+.loader:before {
   animation-delay: .5s;
 }
 
-@keyframes loader{
-  0%{
-    transform:scale(0);
+@keyframes loader {
+  0% {
+    transform: scale(0);
     opacity: 0;
   }
-  50%{
+
+  50% {
     opacity: 1;
   }
-  100%{
-    transform:scale(1);
-    opacity:0;
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
   }
 }
 
-.foot{
-  background-color: blanchedalmond;
+.foot {
+  background-image: radial-gradient(circle, #368bc2, rgba(255, 255, 255, 0.001), #368bc2);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   color: black;
-  height:150px;
+  text-align: center;
+  align-items: center;
+
 }
+
 .about_us {
   display: flex;
+  flex-direction: column;
+  color: black;
+}
+
+.designer>u {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
   color: black;
+  list-style: none;
 }
 
-.designer {
-  flex-basis: 50%;
+.git_links>a {
   color: black;
+  padding: 3px;
 }
 
-
-
-@media (max-width: 480px) {
-  .about_us,.contact_us{
-    flex-basis: 100%; 
-  }
+.policy {
+  display: flex;
 }
+.policy>p {
+  padding: 0px 10px ;
+}
+
+.copyright {
+  padding: 10px;
+  font-size: 1.5rem;
+  color: whitesmoke;
+}
+
