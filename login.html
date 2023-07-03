@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Sign Up</title>
+
+    <link rel="stylesheet" href="login.css">
+
+</head>
+
+<section class="top-nav">
+    <div class="name">
+      The Ultimate Escape
+    </div>
+    <input id="menu-toggle" type="checkbox" />
+    <label class='menu-button-container' for="menu-toggle">
+      <div class='menu-button'></div>
+    </label>
+    <ul class="menu">
+      <li><a href="index.html">Homepage</a></li>
+      <li><a></a>Gallery</li>
+      <li><a href="login.html">Sign Up</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+    </ul>
+  </section>
+
+<body>
+    <div class="main-Box">
+        <div class="gif">
+            <img src="goku.gif" alt="">
+        </div>
+        <div class="form-box">
+            <header>
+                <h1 id="title">Sign Up</h1>
+            </header>
+            <form id="info" action="account.html" method="get">
+                <section class="input-form">
+                    <div class="txt" id="txt">
+                        <img src="user.png" class="icon" alt="Name">
+                        <input type="text" placeholder="Your Name" id="urname" required>
+                    </div>
+                    <div class="mail" id="mail">
+                        <img src="email.png" class="icon" alt="Email">
+                        <input type="email" placeholder="Your Email Address" id="uremail" autocomplete="off" required>
+                    </div>
+                    <div id="email_error"></div>
+                    <div class="pass" id="pass">
+                        <img src="padlock.png" class="icon" alt="password">
+                        <input type="password" placeholder="Password" id="password" required>
+                    </div>
+                    <div id="password_error"></div>
+                    <div class="show">
+                        <div class="tick">
+                            <input type="checkbox" id="check" onclick="showpassword()">
+                            <p>Show Password</p>
+                        </div>
+                        <div class="forgot" id="forgot"><a href="#">Forgot Password?</a></div>
+                    </div>
+                </section>
+                <div class="submit-form">
+                    <input type="submit" value="Sign Up" class="signup" id="signup">
+                    <input type="submit" value="Login" class="login" id="login">
+                </div>
+
+                <div class="no-acc" id="no-acc">
+                    <p>Didn't have an Account?</p>
+                    <a href="#" id="sign">Sign Up</a>
+                </div>
+                <div class="have-acc" id="have-acc">
+                    <p>Have an Account?</p>
+                    <a href="#" id="log">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="login.js"></script>
+
+</body>
+
+</html>
