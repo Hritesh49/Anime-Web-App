@@ -193,7 +193,7 @@ a {
 }
 
 #anime-details {
-  border: 25px solid #708ebb;
+  border: 25px solid #05285d;
   margin: 10px;
   border-radius: 8px;
   
@@ -247,7 +247,7 @@ a {
 /* character galllery */
 
 #character-list {
-  border: 30px solid #829ec7;
+  border: 25px solid #05285d;
   margin: 10px;
   border-radius: 5px;
   display: flex;
@@ -385,3 +385,11 @@ li img {
 }
 
 
+#reviewsContainer{
+  display: flex;
+  border: 25px solid #05285d;
+  margin: 10px;
+    border-radius: 8px;
+    flex-direction: column;
+    padding-left: 20px;
+}
