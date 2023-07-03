@@ -192,13 +192,11 @@ a {
   }
 
   h1 {
-    margin-top: 20%;
-    font-size: 2rem;
+    margin-top: 10%;
+    font-size: 1.8rem;
   }
 
-  li {
-    font-size: 2vw
-  }
+  
 
   h2#question {
     font-size: 1.2rem
