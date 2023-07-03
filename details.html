@@ -5,6 +5,8 @@
 
 <head>
   <title>Anime Details</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="details.css">
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
 </head>
@@ -30,30 +32,31 @@
       <li><a href="quiz.html">Quiz</a></li>
     </ul>
   </section>
-  
 
-    <section class="main_body">
 
-      <div id="anime-details"></div>
-      <div id="character-gallery"></div>
+  <section class="main_body">
 
-    </section>
-    
+    <div id="anime-details"></div>
+    <div id="character-gallery"></div>
 
-        <h1 class="character_name">Character Gallery</h1>
-     
+  </section>
 
-  
+
+  <h1 class="character_name">Character Gallery</h1>
 
   <script src="details.js" type="module"> </script>
   <ul id="character-list"></ul>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-        setTimeout(function(){
-            $('.loader-bg').fadeToggle();
-        }, 1500);
-    </script>
+  <script>
+    setTimeout(function () {
+      $('.loader-bg').fadeToggle();
+    }, 1500);
+  </script>
+
+  <div id="reviewsContainer"></div>
+
+  
 
 
 </body>

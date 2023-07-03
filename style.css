@@ -6,6 +6,7 @@
   box-sizing: border-box;
   font-family: 'Montserrat', serif;
   scroll-behavior: smooth;
+  text-decoration: none;
 }
 
 body {
@@ -59,6 +60,7 @@ a {
   position: fixed;
   width: 100%;
   z-index: 6;
+  border: 1px solid white;
 }
 
 .menu {
@@ -203,7 +205,7 @@ a {
   right: auto;
 }
 
-#emoji{
+#emoji {
   z-index: 99;
 }
 
@@ -231,15 +233,18 @@ section img {
 /*----------------form--------------*/
 
 .main-container {
-  width: 90%;
+  width: 100%;
   min-height: 100vh;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-
+  /* margin-top: 10px; */
+  padding-top: 20px;
+  background-image: radial-gradient(circle, #78bae7, rgba(255, 255, 255, 0.001), #78bae7);
 }
+
 
 
 
@@ -294,7 +299,7 @@ form {
 
 header {
   background-color: white;
-  padding: 2rem;
+  padding: 1.62rem;
 }
 
 h2 {
@@ -303,22 +308,26 @@ h2 {
   font-size: 3rem;
   text-align: center;
   font-family: 'Montserrat', serif;
-  text-shadow: 1px 2px 10px #9ec0f3;
+  text-shadow: 1px 2px 10px #bed5f9;
 }
+
+
+
 #anime-searchcontainer {
   /*-----all text and anime image----*/
-  margin: 40px 0 10px 0;
+  margin: 40px 0 0px 0;
 }
-.search{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin: 10px 0 30px 0;
-  }
+
+.search {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0 30px 0;
+}
 
 
 #anime-container {
@@ -328,19 +337,27 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  padding-bottom: 40px;
+  background-color: rgba(11, 3, 60, 0.859)
+}
+  /* background-color: #013365; */
+
+
+#anime-container>h2 {
+  color: white;
 }
 
 
 
-.topdiv {      /*------for upcoming anime------ */
+.topdiv {
+  /*------for upcoming anime------ */
   position: relative;
   width: 80%;
   height: auto;
   /* background: #e2eef4; */
-  background-color:  #c4dff1;
+  background-color: #c4dff1;
   /* background: linear-gradient(to right, whitesmoke, #1F6E8C, whitesmoke); */
-  padding: 20px 0px ;
+  padding: 20px 0px;
   margin-top: 15px;
 }
 
@@ -352,9 +369,9 @@ h2 {
   left: 0;
   top: 0;
   z-index: 3;
-  background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), transparent);
-  border-radius: 10px;
-} 
+  background-image: linear-gradient(90deg, #013365, transparent);
+  /* border-radius: 10px; */
+}
 
 .topdiv::after {
   position: absolute;
@@ -364,9 +381,10 @@ h2 {
   right: 0;
   top: 0;
   z-index: 3;
-  background-image: linear-gradient(-90deg, rgba(255, 255, 255, 1), transparent);
-  border-radius: 10px;
-} 
+  background-image: linear-gradient(-90deg, #013365, transparent);
+  /* border-radius: 10px; */
+}
+
 .content {
   overflow-x: auto;
   display: flex;
@@ -385,17 +403,24 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  background-color: #013365;
 }
 
-.upcomingdiv {      /*------for upcoming anime------ */
+#upcoming-container>h2 {
+  color: white;
+}
+
+.upcomingdiv {
+  /*------for upcoming anime------ */
   position: relative;
   width: 80%;
   height: auto;
   /* background: #e2eef4; */
-  background-color:  #c4dff1;
+  background-color: #c4dff1;
   /* background: linear-gradient(to right, whitesmoke, #1F6E8C, whitesmoke); */
-  padding: 20px 0px ;
+  padding: 20px 0px;
   margin-top: 15px;
 }
 
@@ -407,9 +432,9 @@ h2 {
   left: 0;
   top: 0;
   z-index: 3;
-  background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), transparent);
-  border-radius: 10px;
-} 
+  background-image: linear-gradient(90deg, #013365, transparent);
+  /* border-radius: 10px; */
+}
 
 .upcomingdiv::after {
   position: absolute;
@@ -419,57 +444,68 @@ h2 {
   right: 0;
   top: 0;
   z-index: 3;
-  background-image: linear-gradient(-90deg, rgba(255, 255, 255, 1), transparent);
-  border-radius: 10px;
+  background-image: linear-gradient(-90deg, #013365, transparent);
+  /* border-radius: 10px; */
 }
-.topleft, .topright {
+
+.topleft,
+.topright {
   position: absolute;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  cursor: pointer;
+  filter: invert(96%) sepia(0%) saturate(152%) hue-rotate(277deg) brightness(115%) contrast(100%);
+}
+
+.upcomingleft,
+.upcomingright {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  cursor: pointer;
+  filter: invert(96%) sepia(0%) saturate(152%) hue-rotate(277deg) brightness(115%) contrast(100%);
+}
+
+.nowleft,
+.nowright {
+  position: absolute;
+  width: 60px;
+  height: 60px;
   border-radius: 50px;
   cursor: pointer;
   filter: invert(37%) sepia(35%) saturate(891%) hue-rotate(151deg) brightness(93%) contrast(94%);
-} 
-.upcomingleft, .upcomingright {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  border-radius: 50px;
-  cursor: pointer;
-  filter: invert(37%) sepia(35%) saturate(891%) hue-rotate(151deg) brightness(93%) contrast(94%);
 }
-.nowleft, .nowright {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  border-radius: 50px;
-  cursor: pointer;
-  filter: invert(37%) sepia(35%) saturate(891%) hue-rotate(151deg) brightness(93%) contrast(94%);
-}
+
 .upcomingleft {
   top: 40%;
-  left: -100px;
+  left: -60px;
 }
+
 .nowleft {
   top: 40%;
-  left: -100px;
+  left: -60px;
 }
+
 .topleft {
   top: 40%;
-  left: -100px;
+  left: -60px;
 }
 
 .upcomingright {
   top: 40%;
-  right: -100px;
+  right: -60px;
 }
-.nowright{
+
+.nowright {
   top: 40%;
-  right: -100px;
+  right: -60px;
 }
-.topright{
+
+.topright {
   top: 40%;
-  right: -100px;
+  right: -60px;
 }
 
 .upcoming {
@@ -482,23 +518,33 @@ h2 {
   width: 0;
   height: 0;
 }
+
 #now-container {
   display: flex;
   width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  padding-bottom: 80px;
+  padding-top: 50px;
+  background-image: radial-gradient(circle, #78bae7, rgba(255, 255, 255, 0.001), #78bae7);
 }
-.nowdiv {      /*------for upcoming anime------ */
+
+#now-container>h2 {
+  text-shadow: 1px 2px 10px #4a89e7;
+}
+
+.nowdiv {
+  /*------for upcoming anime------ */
   position: relative;
   width: 80%;
   height: auto;
   /* background: #e2eef4; */
-  background-color:  #c4dff1;
+  background-color: #c4dff1;
   /* background: linear-gradient(to right, whitesmoke, #1F6E8C, whitesmoke); */
-  padding: 20px 0px ;
+  padding: 20px 0px;
   margin-top: 15px;
+  background-color: #013365;
 }
 
 .nowdiv::before {
@@ -509,9 +555,9 @@ h2 {
   left: 0;
   top: 0;
   z-index: 3;
-  background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), transparent);
-  border-radius:10px ;
-} 
+  background-image: linear-gradient(90deg, #78bae7, transparent);
+  /* border-radius: 10px; */
+}
 
 .nowdiv::after {
   position: absolute;
@@ -521,9 +567,10 @@ h2 {
   right: 0;
   top: 0;
   z-index: 3;
-  background-image: linear-gradient(-90deg, rgba(255, 255, 255, 1), transparent);
-  border-radius: 10px;
-} 
+  background-image: linear-gradient(-90deg, #78bae7, transparent);
+  /* border-radius: 10px; */
+}
+
 .now {
   overflow-x: auto;
   display: flex;
@@ -534,7 +581,9 @@ h2 {
   width: 0;
   height: 0;
 }
-.anime-upcard {         /*---for all anime box or outline---*/
+
+.anime-upcard {
+  /*---for all anime box or outline---*/
   min-width: 200px;
   max-width: 200px;
   height: auto;
@@ -549,7 +598,8 @@ h2 {
   transition: transform .2s;
 }
 
-.anime-nowcard {         /*---for all anime box or outline---*/
+.anime-nowcard {
+  /*---for all anime box or outline---*/
   min-width: 200px;
   max-width: 200px;
   height: auto;
@@ -563,34 +613,41 @@ h2 {
   z-index: 2;
   transition: transform .2s;
 }
+
 .anime-upcard:first-child {
-  margin-left: 50px;
+  margin-left: 40px;
 }
+
 .anime-nowcard:first-child {
-  margin-left: 50px;
+  margin-left: 40px;
 }
+
 .anime-card:first-child {
-  margin-left: 50px;
+  margin-left: 30px;
 }
 
 .anime-upcard:last-child {
   margin-right: 50px;
 }
+
 .anime-nowcard:last-child {
   margin-right: 50px;
 }
+
 .anime-card:last-child {
   margin-right: 50px;
 }
 
-.anime-upcard:hover{
-  transform:scale(1.05);
+.anime-upcard:hover {
+  transform: scale(1.05);
 }
-.anime-nowcard:hover{
-  transform:scale(1.05);
+
+.anime-nowcard:hover {
+  transform: scale(1.05);
 }
-.anime-card:hover{
-  transform:scale(1.05);
+
+.anime-card:hover {
+  transform: scale(1.05);
 }
 
 .anime-card {
@@ -608,6 +665,7 @@ h2 {
   z-index: 2;
   transition: transform .2s;
 }
+
 .anime-searchcard {
   /*---for all anime box or outline---*/
   width: 230px;
@@ -622,8 +680,9 @@ h2 {
   background-color: #e7e1e1;
   border-radius: 8px;
 }
-.anime-card:hover{
-  transform:scale(1.05);
+
+.anime-card:hover {
+  transform: scale(1.05);
 }
 
 
@@ -646,16 +705,6 @@ h2 {
   font-size: 13px;
 }
 
-.copyright {
-  text-align: center;
-  padding: 30px;
-  font-size: 1.5rem;
-  color: whitesmoke;
-  position: relative;
-  z-index: 4;
-}
-
-
 
 
 /* #preloader{
@@ -668,58 +717,61 @@ h2 {
   overflow: visible;
 } */
 
-.loader-bg{
+.loader-bg {
   position: fixed;
-  z-index:999999;
+  z-index: 999999;
   background: #fff;
-  width:100%;
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.loader{
-  border:0 solid transparent;
-  border-radius:50%;
-  width:150px;
+.loader {
+  border: 0 solid transparent;
+  border-radius: 50%;
+  width: 150px;
   height: 150px;
   position: absolute;
-  top:calc(50vh-75px);
-  left:calc(50vw-75px);
-  
+  top: calc(50vh-75px);
+  left: calc(50vw-75px);
+
   justify-content: center;
   align-items: center;
 }
 
-.loader:before, .loader:after{
+.loader:before,
+.loader:after {
   content: '';
-  border:1em solid #678aec;
-  border-radius:50%;
-  width:inherit;
+  border: 1em solid #678aec;
+  border-radius: 50%;
+  width: inherit;
   height: inherit;
-  position:absolute;
-  top:0;
-  left:0;
+  position: absolute;
+  top: 0;
+  left: 0;
   animation: loader 2s linear infinite;
-  opacity:0;
+  opacity: 0;
 }
 
-.loader:before{
+.loader:before {
   animation-delay: .5s;
 }
 
-@keyframes loader{
-  0%{
-    transform:scale(0);
+@keyframes loader {
+  0% {
+    transform: scale(0);
     opacity: 0;
   }
-  50%{
+
+  50% {
     opacity: 1;
   }
-  100%{
-    transform:scale(1);
-    opacity:0;
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
   }
 }
 

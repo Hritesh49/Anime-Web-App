@@ -18,6 +18,7 @@ window.addEventListener('scroll', () => {
 
 
 
+
 // Function to fetch anime details by title search
 function fetchAnimeDetails(title, id) {
   fetch(`https://api.jikan.moe/v4/anime?q=${title}`)
@@ -38,7 +39,7 @@ function fetchAnimeDetails(title, id) {
 
         const upcomingAnimeContainer = document.querySelector('.anime-row.upcoming');
         upcomingAnimeContainer.style.display = 'flex';
-          
+
         const nowAnimeContainer = document.querySelector('.anime-row.now');
         nowAnimeContainer.style.display = 'flex';
 
@@ -50,11 +51,21 @@ function fetchAnimeDetails(title, id) {
         upcomingHeading.style.display = 'block';
         nowHeading.style.display = 'block';
         const nowdiv = document.querySelector('.nowdiv');
-        nowdiv.style.display='flex'
+        nowdiv.style.display = 'flex'
         const upcoming = document.querySelector('.upcomingdiv')
-        upcoming.style.display='flex'
+        upcoming.style.display = 'flex'
         const top = document.querySelector('.topdiv')
-        top.style.display='flex'
+        top.style.display = 'flex'
+
+        const upcomingContainer = document.querySelector('#upcoming-container');
+        upcomingContainer.style.display = 'flex';
+
+        const nowContainer = document.querySelector('#now-container');
+        nowContainer.style.display = 'flex';
+
+        const Topanimation = document.querySelector('#top');
+        Topanimation.style.display = 'flex';
+
       });
       animeContainer.appendChild(backButton);
 
@@ -62,7 +73,7 @@ function fetchAnimeDetails(title, id) {
       if (data.data.length === 0) {
         const noResultsMessage = document.createElement('p');
         noResultsMessage.textContent = 'No results found.';
-        animehContainer.appendChild(noResultsMessage);
+        animeContainer.appendChild(noResultsMessage);
       } else {
         data.data.forEach((anime) => {
           const animesearchCard = createAnimesearchCard(anime);
@@ -80,13 +91,23 @@ function fetchAnimeDetails(title, id) {
       const upcomingAnimeContainer = document.querySelector('.anime-row.upcoming');
       upcomingAnimeContainer.style.display = 'none';
       const now = document.querySelector('.now');
-      now.style.display='none'
+      now.style.display = 'none'
       const nowdiv = document.querySelector('.nowdiv');
-      nowdiv.style.display='none'
+      nowdiv.style.display = 'none'
       const upcoming = document.querySelector('.upcomingdiv')
-      upcoming.style.display='none'
-      const top= document.querySelector('.topdiv')
-      top.style.display='none'
+      upcoming.style.display = 'none'
+      const top = document.querySelector('.topdiv')
+      top.style.display = 'none'
+
+      const upcomingContainer = document.querySelector('#upcoming-container');
+      upcomingContainer.style.display = 'none';
+
+      const nowContainer = document.querySelector('#now-container');
+      nowContainer.style.display = 'none';
+
+      const Topanimation = document.querySelector('#top');
+      Topanimation.style.display = 'none';
+
     })
 
     .catch((error) => {
@@ -282,13 +303,13 @@ upcoming.addEventListener("wheel", (evt) => {
   // evt.preventDefault();
   upcoming.scrollLeft += evt.deltaY;
 });
-Left.addEventListener("click", ()=>{
+Left.addEventListener("click", () => {
   upcoming.style.scrollBehaviour = "smooth";
-  upcoming.scrollLeft -= 300; 
+  upcoming.scrollLeft -= 300;
 });
-Right.addEventListener("click", ()=>{
+Right.addEventListener("click", () => {
   upcoming.style.scrollBehaviour = "smooth";
-  upcoming.scrollLeft += 300; 
+  upcoming.scrollLeft += 300;
 });
 
 const content = document.querySelector('.content');
@@ -299,13 +320,13 @@ content.addEventListener("wheel", (evt) => {
   // evt.preventDefault();
   content.scrollLeft += evt.deltaY;
 });
-TopLeft.addEventListener("click", ()=>{
+TopLeft.addEventListener("click", () => {
   content.style.scrollBehaviour = "smooth";
-  content.scrollLeft -= 300; 
+  content.scrollLeft -= 300;
 });
-TopRight.addEventListener("click", ()=>{
+TopRight.addEventListener("click", () => {
   content.style.scrollBehaviour = "smooth";
-  content.scrollLeft += 300; 
+  content.scrollLeft += 300;
 });
 
 
@@ -317,13 +338,13 @@ now.addEventListener("wheel", (evt) => {
   // evt.preventDefault();
   now.scrollLeft += evt.deltaY;
 });
-NowLeft.addEventListener("click", ()=>{
+NowLeft.addEventListener("click", () => {
   now.style.scrollBehaviour = "smooth";
-  now.scrollLeft -= 300; 
+  now.scrollLeft -= 300;
 });
-NowRight.addEventListener("click", ()=>{
+NowRight.addEventListener("click", () => {
   now.style.scrollBehaviour = "smooth";
-  now.scrollLeft += 300; 
+  now.scrollLeft += 300;
 });
 
 
@@ -346,22 +367,22 @@ function displayUpcomingSeason() {
     });
 }
 // function to create new anime card element
-function dispalyAnimeNow(){
-  const animeContainer= document.querySelector('.anime-row.now');
-  animeContainer.innerHTML='';
-   fetch('https://api.jikan.moe/v4/seasons/now')
-   .then((response)=>response.json())
-   .then((data) => {
-    const nowAnime = data.data.slice(0, 20);
+function dispalyAnimeNow() {
+  const animeContainer = document.querySelector('.anime-row.now');
+  animeContainer.innerHTML = '';
+  fetch('https://api.jikan.moe/v4/seasons/now')
+    .then((response) => response.json())
+    .then((data) => {
+      const nowAnime = data.data.slice(0, 20);
 
-    nowAnime.forEach((anime) => {
-      const animeNowcard = createAnimeNowcard(anime);
-      animeContainer.appendChild(animeNowcard);
+      nowAnime.forEach((anime) => {
+        const animeNowcard = createAnimeNowcard(anime);
+        animeContainer.appendChild(animeNowcard);
+      });
+    })
+    .catch((error) => {
+      console.log('Error fetching now season:', error);
     });
-  })
-  .catch((error) => {
-    console.log('Error fetching now season:', error);
-  });
 
 }
 // Function to handle form submission and initiate search

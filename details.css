@@ -65,6 +65,7 @@ a {
   position: fixed;
   width: 100%;
   z-index: 5;
+  border: 1px solid white;
 }
 
 .menu {
@@ -382,3 +383,5 @@ li img {
     opacity:0;
   }
 }
+
+
