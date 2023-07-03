@@ -801,14 +801,7 @@ h2 {
 	vertical-align: top;
 }
 
-<<<<<<< HEAD
-  .foot>h3 {
-    font-size: 1.7rem;
-    font-weight: bolder;
-  }
-=======
 /* Footer left */
->>>>>>> 4e0a883e5122b3e282d27b32804ce7bf9af0023d
 
 .footer-distributed .footer-left{
 	width: 40%;
@@ -816,27 +809,6 @@ h2 {
 
 /* The company logo */
 
-<<<<<<< HEAD
-  .contact_us>h4 {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-  }
-
-  .contact_us::before {
-    width: 80rem;
-    height: 0.5px;
-    content: '';
-    position: absolute;
-    background-color: black;
-    top: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .designer {
-    margin-left: 0px;
-  }
-=======
 .footer-distributed h3{
 	color:  #ffffff;
 	font: normal 36px 'Open Sans', cursive;
@@ -848,7 +820,6 @@ h2 {
 }
 
 /* Footer links */
->>>>>>> 4e0a883e5122b3e282d27b32804ce7bf9af0023d
 
 .footer-distributed .footer-links{
 	color:  #ffffff;
@@ -864,24 +835,6 @@ h2 {
 	color:  inherit;
 }
 
-<<<<<<< HEAD
-  .git_links>a {
-    color: black;
-    padding: 3px;
-    font-weight: lighter;
-    font-size: larger;
-    margin-right: 4px;
-    margin-left: 4px;
-  }
-
-  .enigma {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
-=======
 .footer-distributed .footer-company-name{
 	color:  #222;
 	font-size: 14px;
@@ -890,7 +843,6 @@ h2 {
 }
 
 /* Footer Center */
->>>>>>> 4e0a883e5122b3e282d27b32804ce7bf9af0023d
 
 .footer-distributed .footer-center{
 	width: 35%;
