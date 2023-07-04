@@ -19,19 +19,19 @@ Email.addEventListener('keyup', () => {
         Form.classList.add("valid");
         Form.classList.remove("invalid");
         Emailerror.innerHTML = "";
-        mailField.style.border = '2px solid #2c6f9f';
+        mailField.style.border = '0.125rem solid #2c6f9f';
     }
     else if (Email == "" || Email.value == null) {
         Form.classList.remove("valid");
         Form.classList.remove("invalid");
         Emailerror.innerHTML = "";
-        mailField.style.border = '2px solid transparent';
+        mailField.style.border = '0.125rem solid transparent';
     }
     else {
         Form.classList.remove("valid");
         Form.classList.add("invalid");
         Emailerror.innerHTML = "Please enter a valid email address";
-        mailField.style.border = '2px solid red';
+        mailField.style.border = '0.125rem solid red';
         Emailerror.style.color = "red";
     }
 
@@ -43,21 +43,21 @@ Password.addEventListener('keyup', () => {
     const PassField = document.getElementById('pass');
     if (Password.value === '' || Password.value == null) {
         Passerror.innerText = '';
-        PassField.style.border = '2px solid transparent';
+        PassField.style.border = '0.125rem solid transparent';
     }
     else if (Password.value.length <= 6) {
         Passerror.innerText = 'Password must contain at least 6 characters';
-        PassField.style.border = '2px solid red';
+        PassField.style.border = '0.125rem solid red';
         Passerror.style.color = "red";
     }
     else if (Password.value.length >= 15) {
         Passerror.innerText = 'Password can contain at most 15 characters';
-        PassField.style.border = '2px solid red';
+        PassField.style.border = '0.125rem solid red';
         Passerror.style.color = "red";
     }
     else {
         Passerror.innerText = '';
-        PassField.style.border = '2px solid #2c6f9f';
+        PassField.style.border = '0.125rem solid #2c6f9f';
     }
 })
 
