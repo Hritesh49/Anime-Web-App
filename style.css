@@ -242,7 +242,7 @@ section img {
   align-items: center;
   /* margin-top: 10px; */
   padding-top: 20px;
-  background-image: radial-gradient(circle, #78bae7, rgba(255, 255, 255, 0.001), #78bae7);
+  background-color: #013365;
 }
 
 
@@ -785,7 +785,7 @@ h2 {
 
 
 .footer-distributed{
-	background-image: radial-gradient(circle, #368bc2, rgba(255, 255, 255, 0.001));
+	background-image: radial-gradient(circle, #368bc2, rgba(121, 122, 122, 0.781));
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
