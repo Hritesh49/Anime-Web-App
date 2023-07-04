@@ -1,10 +1,19 @@
 
+document.addEventListener('DOMContentLoaded', () => {
+  const galleryElement = document.getElementById('gallery');
+  const anchorElement = document.createElement('a');
+  anchorElement.href = `gallery.html?title=${encodeURIComponent(title)}`;
+  anchorElement.innerHTML = 'ANIME GALLERY';
+  galleryElement.appendChild(anchorElement);
+});
+
 // Function to fetch anime details by title
 
 function fetchAnimeDetails(title) {
   fetch(`https://api.jikan.moe/v4/anime?q=${title}`)
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       const animeDetailsContainer = document.querySelector('#anime-details');
       const characterGalleryContainer = document.querySelector('#character-gallery');
       animeDetailsContainer.innerHTML = '';
@@ -237,7 +246,6 @@ fetch('https://graphql.anilist.co', {
     console.error('Error:', error);
   });
 
-  
 
 
 

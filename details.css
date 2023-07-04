@@ -589,3 +589,10 @@ li img {
   }
 
 }
+
+#gallery{
+  text-align: center;
+  padding:5px;
+  background-color: #05285d;
+  border-radius: 8px;
+}

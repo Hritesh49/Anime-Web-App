@@ -15,7 +15,7 @@
   <div class="loader-bg">
     <div class="loader"></div>
   </div>
-
+  
   <!-- navBar -->
   <section class="top-nav">
     <div class="nav-name">
@@ -25,9 +25,9 @@
     <label class='menu-button-container' for="menu-toggle">
       <div class='menu-button'></div>
     </label>
+    
     <ul class="menu">
       <li><a href="index.html">Homepage</a></li>
-      <li><a></a>Gallery</li>
       <li><a href="login.html">Sign Up</a></li>
       <li><a href="quiz.html">Quiz</a></li>
     </ul>
@@ -37,14 +37,15 @@
   <section class="main_body">
 
     <div id="anime-details"></div>
+    <div id="gallery"></div>
     <div id="character-gallery"></div>
-
+    
   </section>
-
-
+  
+  
   <h1 class="character_name">Character Gallery</h1>
 
-  <script src="details.js" type="module"> </script>
+  <script src="details.js" > </script>
   <ul id="character-list"></ul>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -53,13 +54,12 @@
       $('.loader-bg').fadeToggle();
     }, 1500);
   </script>
-
   <div id="reviewsContainer"></div>
 
   <footer class="footer-distributed">
 
     <div class="footer-left">
-
+      
       <h3>Web<span>Decoders</span></h3>
 
       <p class="footer-links">
