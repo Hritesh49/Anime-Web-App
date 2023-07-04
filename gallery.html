@@ -2,10 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="./icons/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Anime Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
 </head>
 <body>
+      
+  <!-- navBar -->
+  <section class="top-nav">
+    <div class="nav-name">
+      The Ultimate Escape
+    </div>
+    <input id="menu-toggle" type="checkbox" />
+    <label class='menu-button-container' for="menu-toggle">
+      <div class='menu-button'></div>
+    </label>
+    
+    <ul class="menu">
+      <li><a href="index.html">Homepage</a></li>
+      <li><div id="gallery"></div></li>
+      <li><a href="login.html">Sign Up</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+    </ul>
+  </section>
+  <div class="container">
+
+      <div id="imageContainer"></div>
+    </div>
+
+  
     <script src="gallery.js" type="module">
         
     </script>

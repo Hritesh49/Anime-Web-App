@@ -20,18 +20,22 @@ const mId = await fetchAnime(title);
 const dip=mId;
 console.log(dip);
 
+
 fetch(`https://api.jikan.moe/v4/anime/${dip}/pictures`)
 .then(response => response.json())
 .then(data => {
   // Process the data
   console.log(data);
   console.log(data.data.length);
+  const imageContainer = document.getElementById('imageContainer');
   for(let i=0;i<data.data.length;i++){
     console.log(data.data[i].jpg.large_image_url);
+   
 var imgElement = document.createElement('img');
 imgElement.src = data.data[i].jpg.large_image_url;
-imgElement.classList="item";
-document.body.appendChild(imgElement);
+imgElement.classList.add="item";
+imageContainer.appendChild(imgElement);
+
 
 }
 })
