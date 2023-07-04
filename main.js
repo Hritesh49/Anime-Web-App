@@ -397,6 +397,22 @@ function handleSearch(event) {
   }
 }
 
+// animation on search bar
+
+const searchinput = document.querySelector('#search-input');
+
+const typed = new Typed(searchinput, {
+  strings: ['Try Searching Popular Animes',' Try searching your favorite anime','Try Searching Naruto: The Last Movie','Try searching Demon Slayer'],
+  typeSpeed: 50,
+  showCursor: true,
+  cursorChar: '|',
+  loop: true,
+  loopCount: Infinity,
+  startDelay: 1000,
+  smartBackspace: true,
+  attr: 'placeholder',
+});
+
 // Event listener for search form submission
 const searchForm = document.querySelector('#search-form');
 searchForm.addEventListener('submit', handleSearch);
