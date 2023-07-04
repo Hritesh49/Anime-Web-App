@@ -39,3 +39,4 @@ document.body.appendChild(imgElement);
 // Handle any errors
 console.error('Error:', error);
 });
+
