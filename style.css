@@ -241,7 +241,7 @@ section img {
   justify-content: center;
   align-items: center;
   /* margin-top: 10px; */
-  padding-top: 20px;
+  padding-top: 3.5rem;
   background-image: radial-gradient(circle, #78bae7, rgba(255, 255, 255, 0.001), #78bae7);
 }
 

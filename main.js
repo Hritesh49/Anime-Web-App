@@ -355,6 +355,7 @@ function displayUpcomingSeason() {
   fetch('https://api.jikan.moe/v4/seasons/upcoming')
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       const upcomingAnime = data.data.slice(0, 40);
 
       upcomingAnime.forEach((anime) => {
