@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const galleryElement = document.getElementById('gallery');
   const anchorElement = document.createElement('a');
   anchorElement.href = `gallery.html?title=${encodeURIComponent(title)}`;
-  anchorElement.innerHTML = 'ANIME GALLERY';
+  anchorElement.innerHTML = 'Gallery';
   galleryElement.appendChild(anchorElement);
 });
 
