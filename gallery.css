@@ -12,6 +12,7 @@ body {
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
+  
 
 }
 
@@ -29,6 +30,7 @@ body {
   height: 100%;
   background-color: #c7d6ee;
   color: #263238;
+
 }
 
 * {
@@ -156,4 +158,21 @@ a {
   }
 
   /* body */
+#imageContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 2rem;
+  padding-top: 4rem;
+}
+.container{
+  border: 0.5rem solid #0a335d;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
 
+img{
+  border-radius: 10px;
+}
