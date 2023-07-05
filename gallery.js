@@ -44,3 +44,53 @@ fetch(`https://api.jikan.moe/v4/anime/${dip}/pictures`)
     console.error('Error:', error);
   });
 
+  const apiUrl = `https://api.jikan.moe/v4/anime/${dip}/videos`;
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      const resultContainer = document.getElementById("result-container");
+      const trailerContainer = document.getElementById("trailer-container");
+  
+  
+      const promoTrailers = data.data.promo;
+      if (promoTrailers.length == 0) {
+        trailerContainer.innerHTML += "<h1>No trailer available</h1>";
+      } else {
+        const embedUrl = promoTrailers[0].trailer.embed_url;
+        const videoElement = createYouTubeVideo(embedUrl);
+        trailerContainer.appendChild(videoElement);
+      }
+  
+      const musicVideos = data.data.music_videos;
+      if (musicVideos.length == 0) {
+        resultContainer.innerHTML += "<h1>No music videos available</h1>";
+      } else {
+        for (let i = 0; i < musicVideos.length; i++) {
+          const embedUrl = musicVideos[i].video.embed_url;
+          const videoElement = createYouTubeVideo(embedUrl);
+          resultContainer.appendChild(videoElement);
+        }
+      }
+    })
+  
+    .catch(error => {
+      // Handle any errors
+      console.error('Error:', error);
+    });
+  
+  function createYouTubeVideo(embedUrl) {
+    const videoId = extractVideoIdFromUrl(embedUrl);
+    const videoElement = document.createElement("iframe");
+    videoElement.src = `https://www.youtube.com/embed/${videoId}`;
+    videoElement.setAttribute("allowfullscreen", "true");
+    videoElement.classList.add("centered-video");
+    return videoElement;
+  }
+  
+  function extractVideoIdFromUrl(url) {
+    const videoIdMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w\-]{11})/i);
+    return (videoIdMatch && videoIdMatch[1]) || "";
+  }
+  

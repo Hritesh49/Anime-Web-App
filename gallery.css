@@ -243,3 +243,17 @@ img{
   
   }
 }
+#trailer-container{
+  text-align: center;
+  padding-top: 100px;
+}
+#result-container{
+  text-align: center;
+}
+
+.centered-video {
+  width: 800px;
+  height: 450px;
+  display: block;
+  margin: 0 auto;
+}
