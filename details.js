@@ -171,7 +171,7 @@ function fetchAnimeDetails(title) {
       const Expand = document.querySelector('.expand');
       Expand.addEventListener('click', function () {
         listcontainer.classList.toggle('active');
-        if (Content.style, maxHeight) {
+        if (Content.style.maxHeight) {
           Content.style.maxHeight = null;
         } else {
           Content.style.maxHeight = Content.scrollHeight + "px";

@@ -1,4 +1,14 @@
-
+const MangaDiv = document.getElementById('mangadiv');
+      const Content = document.querySelector('.manga-container');
+      const Expand = document.querySelector('.expand');
+      Expand.addEventListener('click', function () {
+        MangaDiv.classList.toggle('active');
+        if (Content.style.maxHeight) {
+          Content.style.maxHeight = null;
+        } else {
+          Content.style.maxHeight = Content.scrollHeight + "px";
+        }
+      });
   
   
   // Fetch data from the API
