@@ -164,7 +164,7 @@ a {
   justify-content: space-around;
   align-items: center;
   gap: 2.2rem;
-  padding: 1.8rem;
+  padding: 1rem;
   padding-top: 3.8rem;
 }
 .container{
@@ -183,7 +183,7 @@ img{
     border: 2px solid #d7d7dc;
     margin: 10px;
     border-radius: 5px;
-    padding: 20px;
+    padding: 10px;
   
 
 }
