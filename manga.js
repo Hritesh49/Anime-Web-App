@@ -39,4 +39,6 @@
       mangaContainer.appendChild(mangaCard);
     });
   })
-  .catch(error => console.error(error));
+ 
+
+  
