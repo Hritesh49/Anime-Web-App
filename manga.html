@@ -11,6 +11,9 @@
 </head>
 
 <body>
+    <div class="loader-bg">
+        <div class="loader"></div>
+      </div>
     <section class="top-nav">
         <div class="name">
           The Ultimate Escape
@@ -26,11 +29,16 @@
           <li><a href="quiz.html">Quiz</a></li>
         </ul>
       </section>
-      <div>
       <h1 id="myHeading">Top Manga</h1>
       </div>
     <div class="manga-container">
     </div>
       <script src="manga.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        setTimeout(function(){
+            $('.loader-bg').fadeToggle();
+        }, 1500);
+    </script>
 </body>
 </html>
