@@ -395,20 +395,6 @@ li img {
   justify-content: center;
 }
 
-button {
-  background: white;
-  border: solid 2px black;
-  padding: .375em 1.125em;
-  font-size: 1rem;
-}
-
-.button-arounder {
-  font-size: 1.5rem;
-  background: hsl(291, 24%, 38%);
-  color: hsl(190deg, 10%, 95%);
-  border-radius: 8px;
-  box-shadow: 0 0px 0px hsla(190deg, 15%, 5%, .2);
-}
 
 #reviewsContainer {
   display: flex;
