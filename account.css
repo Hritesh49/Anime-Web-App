@@ -167,7 +167,7 @@ a {
 
 
 .footer-distributed {
-    background-image: radial-gradient(circle, #368bc2, rgba(255, 255, 255, 0.001));
+    background-image: radial-gradient(circle, #78bae7, rgba(13, 122, 172, 0.744), #78bae7);
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
     box-sizing: border-box;
     width: 100%;
@@ -198,7 +198,7 @@ a {
 }
 
 .footer-distributed h3 span {
-    color: lightseagreen;
+    color: rgb(5, 250, 74);
 }
 
 /* Footer links */

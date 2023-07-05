@@ -10,13 +10,14 @@
   <link rel="stylesheet" href="details.css">
   <link rel="shortcut icon" href="./icons/favicon.ico" type="image/x-icon">
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
   <div class="loader-bg">
     <div class="loader"></div>
   </div>
-  
+
   <!-- navBar -->
   <section class="top-nav">
     <div class="nav-name">
@@ -26,10 +27,12 @@
     <label class='menu-button-container' for="menu-toggle">
       <div class='menu-button'></div>
     </label>
-    
+
     <ul class="menu">
       <li><a href="index.html">Homepage</a></li>
-      <li><div id="gallery"></div></li>
+      <li>
+        <div id="gallery"></div>
+      </li>
       <li><a href="login.html">Sign Up</a></li>
       <li><a href="quiz.html">Quiz</a></li>
     </ul>
@@ -38,17 +41,23 @@
 
   <section class="main_body">
 
-    <div id="anime-details"></div>
+    <div id="anime-details"> </div>
     <div id="character-gallery"></div>
-    
+
   </section>
- 
-  
+
+
   <h1 class="character_name">Characters List</h1>
 
-  <script src="details.js" > </script>
-  <ul id="character-list"></ul>
-  
+  <script src="details.js"> </script>
+  <div id="list-container">
+    <div id="character-container">
+      <ul id="character-list"></ul>
+    </div>
+    <div class="expand"></div>
+  </div>
+
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
@@ -61,18 +70,18 @@
   <footer class="footer-distributed">
 
     <div class="footer-left">
-      
+
       <h3>Web<span>Decoders</span></h3>
 
       <p class="footer-links">
         <a href="https://github.com/diya1510" class="link-1">Pratyasha Panda</a>
-        
+
         <a href="https://github.com/Manasamohapatra1">Manasa Mohapatra</a>
-      
+
         <a href="https://github.com/EdwardoEkka">Vishal Ekka</a>
-      
+
         <a href="https://github.com/Hritesh49">Hritesh Roshan Mahapatra</a>
-        
+
         <a href="https://github.com/Goutam-04">Goutam ku Nayak</a>
       </p>
 
@@ -102,7 +111,8 @@
 
       <p class="footer-company-about">
         <span>About Us</span>
-        We are a group of developers, have tried to make a anime website having various type of features using html, css, javascript and jikan api. Hope you like it. 
+        We are a group of developers, have tried to make a anime website having various type of features using html,
+        css, javascript and jikan api. Hope you like it.
       </p>
 
       <div class="footer-icons">

@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" href="./icons/favicon.ico" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Anime Gallery</title>
-    <link rel="stylesheet" href="gallery.css">
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="./icons/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Anime Gallery</title>
+  <link rel="shortcut icon" href="./icons/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="gallery.css">
 </head>
+
 <body>
-      
+
   <!-- navBar -->
   <section class="top-nav">
     <div class="nav-name">
@@ -19,22 +23,26 @@
     <label class='menu-button-container' for="menu-toggle">
       <div class='menu-button'></div>
     </label>
-    
+
     <ul class="menu">
       <li><a href="index.html">Homepage</a></li>
-      <li><div id="gallery"></div></li>
+      <li>
+        <div id="gallery"></div>
+      </li>
       <li><a href="login.html">Sign Up</a></li>
       <li><a href="quiz.html">Quiz</a></li>
     </ul>
   </section>
+  <div id="player"></div>
   <div class="container">
 
-      <div id="imageContainer"></div>
-    </div>
+    <div id="imageContainer"></div>
+  </div>
 
-  
-    <script src="gallery.js" type="module">
-        
-    </script>
+
+  <script src="gallery.js" type="module">
+
+  </script>
 </body>
+
 </html>

@@ -300,7 +300,7 @@ const Left = document.querySelector('.upcomingleft');
 const Right = document.querySelector('.upcomingright');
 
 upcoming.addEventListener("wheel", (evt) => {
-  // evt.preventDefault();
+  evt.preventDefault();
   upcoming.scrollLeft += evt.deltaY;
 });
 Left.addEventListener("click", () => {
@@ -317,7 +317,7 @@ const TopLeft = document.querySelector('.topleft');
 const TopRight = document.querySelector('.topright');
 
 content.addEventListener("wheel", (evt) => {
-  // evt.preventDefault();
+  evt.preventDefault();
   content.scrollLeft += evt.deltaY;
 });
 TopLeft.addEventListener("click", () => {
@@ -335,7 +335,7 @@ const NowLeft = document.querySelector('.nowleft');
 const NowRight = document.querySelector('.nowright');
 
 now.addEventListener("wheel", (evt) => {
-  // evt.preventDefault();
+  evt.preventDefault();
   now.scrollLeft += evt.deltaY;
 });
 NowLeft.addEventListener("click", () => {

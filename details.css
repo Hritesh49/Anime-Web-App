@@ -27,8 +27,10 @@ html,
 body {
   margin: 0;
   height: 100%;
-  background-color: #c7d6ee;
+  background: #78bae7;
   color: #263238;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 * {
@@ -188,7 +190,7 @@ a {
   display: block;
   padding-top: 50px;
 
-  background-color: #c7d6ee;
+  background-color: #a0d1f7;
   color: #263238;
 
 }
@@ -196,24 +198,45 @@ a {
 #anime-details {
   border: 25px solid #05285d;
   margin: 10px;
+  padding: 20px;
   border-radius: 8px;
-
-
-}
-
-.anime-card {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  padding: 10px;
-  padding-top: 25px;
-  gap: 10px;
-  background-color: #c4dff1;
+  background-image: radial-gradient(circle, #78bae7, rgba(13, 122, 172, 0.744), #78bae7);
 }
+
+.animecard {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 1fr 1.5fr;
+  padding: 30px;
+  gap: 10px;
+}
+
+.animecard>img {
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.404);
+  border-radius: 4px;
+}
+
+.animecard>.detaildiv {
+  align-self: baseline;
+  justify-self: baseline;
+  padding: 50px 40px;
+  text-align: start;
+}
+
+.animecard>.detaildiv>h1 {
+  font-size: 4rem;
+  text-decoration: underline;
+  text-decoration-color: #093f8f;
+  margin-bottom: 20px;
+}
+
 
 .anime-image {
   border-radius: 5px;
+  align-self: flex-start;
 }
 
 .anime-title {
@@ -235,29 +258,84 @@ a {
   text-align: center;
   font-family: 'Roboto', sans-serif;
   margin: auto;
+  align-self: flex-end;
 }
 
 .anime-synopsis {
   font-size: large;
   padding-left: 50px;
   padding-right: 50px;
-  padding-top: 30px;
+  /* padding-bottom: 30px; */
   font-family: 'Roboto', sans-serif;
+  margin-bottom: 5px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.more {
+  align-self: start;
+  padding: 0 50px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.more::before {
+  content: 'Show More';
+  cursor: pointer;
+}
+
+.morecontainer.active>.anime-synopsis {
+  display: block;
+}
+
+.morecontainer.active .more::before {
+  content: 'Show Less';
 }
 
 /* character galllery */
 
-#character-list {
+#list-container {
   border: 25px solid #05285d;
   margin: 10px;
+  border-radius: 8px;
+  /* justify-content: space-around;
+  flex-wrap: wrap; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 30px;
+  background: radial-gradient(circle, #cae3f4, rgba(13, 122, 172, 0.744));
+}
+
+#character-container {
+  max-height: 450px;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.expand::before {
+  content: url(expand.png);
+  cursor: pointer;
+}
+
+#list-container.active>#character-container {
+  max-height: max-content;
+}
+
+#list-container.active .expand::before {
+  content: url(collapse.png);
+}
+
+#character-list {
   border-radius: 5px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   gap: 30px;
-  padding: 30px;
-
 }
 
 #character-list li {
@@ -294,7 +372,7 @@ a {
   margin-top: 20px;
 }
 
-span {
+.span {
   font-size: larger;
   text-align: center;
   margin-top: 9px;
@@ -320,7 +398,7 @@ li img {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #b0bec5;
+  background: #e2e2e2;
   border-radius: 5px
 }
 
@@ -388,6 +466,7 @@ li img {
     opacity: 0;
   }
 }
+
 .buttons-container {
   width: 100%;
   display: flex;
@@ -403,6 +482,7 @@ li img {
   border-radius: 8px;
   flex-direction: column;
   padding-left: 20px;
+  background-image: radial-gradient(circle, #a5d0ed, rgba(13, 122, 172, 0.744));
 }
 
 
@@ -415,7 +495,7 @@ li img {
 
 
 .footer-distributed {
-  background-image: radial-gradient(circle, #368bc2, rgba(255, 255, 255, 0.001));
+  background-image: radial-gradient(circle, #78bae7, rgba(13, 122, 172, 0.744), #78bae7);
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   width: 100%;
@@ -446,7 +526,7 @@ li img {
 }
 
 .footer-distributed h3 span {
-  color: lightseagreen;
+  color: rgb(5, 250, 74);
 }
 
 /* Footer links */
@@ -596,4 +676,3 @@ li img {
   }
 
 }
-
