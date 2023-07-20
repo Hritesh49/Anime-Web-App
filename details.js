@@ -3,63 +3,93 @@
 
 function fetchAnimeDetails(title) {
   fetch(`https://api.jikan.moe/v4/anime?q=${title}`)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      const aId = data.data[0].images.jpg.large_image_url;
-      console.log(aId);
-      const ad = document.getElementById('anime-details');
-      const animeCard = document.createElement('div');
-      animeCard.classList.add("animecard");
-      const pic = document.createElement('img');
-      pic.src = aId;
-      animeCard.appendChild(pic);
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        const aId = data.data[0].images.jpg.large_image_url;
+        console.log(aId);
+        const ad = document.getElementById('anime-details');
+        const animeCard = document.createElement('div');
+        animeCard.classList.add("animecard");
+        const pic = document.createElement('img');
+        pic.src = aId;
+        animeCard.appendChild(pic);
       ad.appendChild(animeCard);
+
 
       const a2 = document.createElement('div');
       a2.classList.add('detaildiv');
       animeCard.appendChild(a2);
 
+
       const title = document.createElement('h1');
+
       title.innerHTML = data.data[0].title;
       a2.appendChild(title);
+
 
       const studio = document.createElement('h3');
       studio.innerHTML = `<strong>Studio:</strong> ${data.data[0].studios[0].name}`;
       a2.appendChild(studio);
 
+
       const genre = document.createElement('h3');
       genre.innerHTML = `<strong>Genres:</strong>${data.data[0].genres.map((genre) => genre.name).join(', ')}`;
       a2.appendChild(genre);
+
 
       const rating = document.createElement('h3');
       rating.innerHTML = `<strong>Rating:</strong> ${data.data[0].rating}`;
       a2.appendChild(rating);
 
+
       const season = document.createElement('h3');
       season.innerHTML = `<strong>Season:</strong> ${data.data[0].season}`;
       a2.appendChild(season);
 
+
       const episodes = document.createElement('h3');
       episodes.innerHTML = `<strong>Episodes:</strong> ${data.data[0].episodes}`;
       a2.appendChild(episodes);
+
 
       const status = document.createElement('h3');
       status.innerHTML = `<strong>Status:</strong> ${data.data[0].status}`;
       a2.appendChild(status);
 
 
+
+
       const rank = document.createElement('h3');
       rank.innerHTML = `<strong>Rank:</strong> ${data.data[0].rank}`;
       a2.appendChild(rank);
+
 
       const score = document.createElement('h3');
       score.innerHTML = `<strong>Score:</strong> ${data.data[0].score}`;
       a2.appendChild(score);
 
+
       const source = document.createElement('h3');
       source.innerHTML = `<strong>Source:</strong> ${data.data[0].source}`;
       a2.appendChild(source);
+
+      // const review = document.createElement('h3');
+      // review.innerHTML = `<strong>Review:</strong> ${data.data[0].review}`;
+      // a2.appendChild(review);
+
+      const otherPageLink = document.createElement('a');
+      otherPageLink.innerHTML = "Go to Another Page";
+      otherPageLink.href = `gallery.html?title=${encodeURIComponent(data.data[0].title)}`;
+      a2.appendChild(otherPageLink);
+
+
+
+
+
+
+
+
 
       const review = document.createElement('h3');
       review.innerHTML = `<strong>Review:</strong> ${data.data[0].review}`;
@@ -89,7 +119,7 @@ function fetchAnimeDetails(title) {
       readmore.addEventListener('click', function () {
         moreContainer.classList.toggle('active');
       });
-      a2.appendChild(moreContainer);
+      ad.appendChild(moreContainer);
 
 
 
@@ -100,10 +130,10 @@ function fetchAnimeDetails(title) {
 }
 
 
-
 // Retrieve the title from the URL query parameter
 const urlParams = new URLSearchParams(window.location.search);
 const title = urlParams.get('title');
+
 
 // Fetch anime details using the title
 if (title) {
@@ -183,20 +213,20 @@ fetch('https://graphql.anilist.co', {
 
       const fetchAnimeReviews = async (animeTitle) => {
         const query = `
-          query ($search: String) {
-            Media(search: $search, type: ANIME) {
-              title {
-                romaji
-              }
-              reviews(perPage: 10) {
-                nodes {
-                  rating
-                  summary
-                  user {
-                    name
-                  }
+        query ($search: String) {
+          Media(search: $search, type: ANIME) {
+            title {
+              romaji
+            }
+            reviews(perPage: 10) {
+              nodes {
+                rating
+                summary
+                user {
+                  name
                 }
               }
+            }
             }
           }
           `;
@@ -238,7 +268,7 @@ fetch('https://graphql.anilist.co', {
             <strong>Rating:</strong> ${rating}<br>
             <strong>Summary:</strong> ${summary}<br><br>
             `;
-
+            
             reviewsContainer.appendChild(reviewElement);
           });
         }
@@ -253,12 +283,7 @@ fetch('https://graphql.anilist.co', {
     console.error('Error:', error);
   });
 
+const gp = document.querySelector(".main-body");
 
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   const galleryElement = document.getElementsById('gallery');
-//   const anchorElement = document.createElement('a');
-//   anchorElement.href = `gallery.html?title=${encodeURIComponent(title)}`;
-//   anchorElement.innerHTML = 'Gallery';
-//   galleryElement.appendChild(anchorElement);
-// });
+
