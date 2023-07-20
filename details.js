@@ -62,9 +62,9 @@ function fetchAnimeDetails(title) {
       source.innerHTML = `<strong>Source:</strong> ${data.data[0].source}`;
       a2.appendChild(source);
 
-      const review = document.createElement('h3');
-      review.innerHTML = `<strong>Review:</strong> ${data.data[0].review}`;
-      a2.appendChild(review);
+      // const review = document.createElement('h3');
+      // review.innerHTML = `<strong>Review:</strong> ${data.data[0].review}`;
+      // a2.appendChild(review);
 
       const otherPageLink = document.createElement('a');
       otherPageLink.innerHTML = "Go to Another Page";
