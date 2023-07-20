@@ -133,63 +133,55 @@ const t = title;
 console.log(title);
 
 
+async function fetchAnime(title) {
+  try {
+    const response = await fetch(`https://api.jikan.moe/v4/anime?q=${title}`);
+    const data = await response.json();
+    const mId = data.data[0].mal_id;
+    return mId;
+  } catch (error) {
+    console.log("Error:", error);
+    return null;
+  }
+}
 
-fetch('https://graphql.anilist.co', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
-  },
-  body: JSON.stringify({
-    query: `
-      query ($title: String) {
-        Media(type: ANIME, search: $title) {
-          characters {
-            edges {
-              node {
-                name {
-                  full
-                }
-                image {
-                  large
-                }
-              }
-            }
-          }
-        }
-      }
-      `,
-    variables: {
-      title: t,
-    },
-  }),
-})
-  .then(response => response.json())
-  .then(data => {
-    // Extract the characters from the response
-    const characters = data.data.Media.characters.edges;
+const mId = await fetchAnime(title);
+const dip = mId;
+console.log(dip);
 
-    // Get the character list element
+fetch(`https://api.jikan.moe/v4/anime/${dip}/characters`)
+.then(response => response.json())
+.then(data =>
+  {
+    console.log(data);
+        // Get the character list element
     const characterList = document.getElementById('character-list');
+    console.log(data.data.length);
+    // Get the character list element
+    for(let i=0;i<data.data.length;i++)
+    {
+      //  console.log(data.data[i].character.images.jpg.image_url);
+      //  console.log(data.data[i].character.name);
+      //  console.log(data.data[i].role);
 
     // Display each character's name and image
-    characters.forEach(character => {
       const listItem = document.createElement('li');
 
       // Create an image element
       const image = document.createElement('img');
-      image.src = character.node.image.large;
-      image.alt = character.node.name.full;
+      image.src = data.data[i].character.images.jpg.image_url;
+      // image.alt = character.node.name.full;
       listItem.appendChild(image);
 
       // Create a span element for the character name
       const nameSpan = document.createElement('span');
-      nameSpan.textContent = character.node.name.full;
+      nameSpan.textContent = data.data[i].character.name;
       listItem.appendChild(nameSpan);
 
       characterList.appendChild(listItem);
-
-      const listcontainer = document.getElementById('list-container');
+      
+    }
+          const listcontainer = document.getElementById('list-container');
       const Content = document.getElementById('character-container');
       const Expand = document.querySelector('.expand');
       Expand.addEventListener('click', function () {
@@ -201,79 +193,39 @@ fetch('https://graphql.anilist.co', {
         }
       });
 
-      const fetchAnimeReviews = async (animeTitle) => {
-        const query = `
-        query ($search: String) {
-          Media(search: $search, type: ANIME) {
-            title {
-              romaji
-            }
-            reviews(perPage: 10) {
-              nodes {
-                rating
-                summary
-                user {
-                  name
-                }
-              }
-            }
-            }
-          }
-          `;
-
-        const variables = {
-          search: animeTitle
-        };
-
-        const response = await fetch('https://graphql.anilist.co', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-          },
-          body: JSON.stringify({
-            query,
-            variables
-          }),
-        });
-
-        const data = await response.json();
-        const animeData = data.data.Media;
-
-        if (animeData) {
-          const title = animeData.title.romaji;
-          const reviews = animeData.reviews.nodes;
-
-          const reviewsContainer = document.getElementById('reviewsContainer');
-          reviewsContainer.innerHTML = `<h2>Reviews for ${title}:</h2>`;
-
-          reviews.forEach(review => {
-            const rating = review.rating;
-            const summary = review.summary;
-            const user = review.user.name;
-
-            const reviewElement = document.createElement('div');
-            reviewElement.innerHTML = `
-            <strong>User:</strong> ${user}<br>
-            <strong>Rating:</strong> ${rating}<br>
-            <strong>Summary:</strong> ${summary}<br><br>
-            `;
-            
-            reviewsContainer.appendChild(reviewElement);
-          });
-        }
-      };
-
-      fetchAnimeReviews(t);
-
-
-    });
   })
-  .catch(error => {
-    console.error('Error:', error);
-  });
 
-const gp = document.querySelector(".main-body");
-
+  fetch(`https://api.jikan.moe/v4/anime/${dip}/reviews`)
+  .then(response=> response.json())
+  .then(data=>
+    {
+      console.log(data);
+      if(data.data.length>0)
+      {
+        const reviewsContainer = document.getElementById('reviewsContainer');
+              reviewsContainer.innerHTML = `<h2>Reviews for ${title}:</h2>`;
+        
+        
+        for(let i=0;i<data.data.length;i++)
+        {
+          console.log(data.data[i].user.username);
+          const rating = data.data[i].score;
+                  const summary = data.data[i].review;
+                  const user = data.data[i].user.username;
+          
+                  const reviewElement = document.createElement('div');
+                  reviewElement.innerHTML = `
+                  <strong>User:</strong> ${user}<br>
+                  <strong>Rating:</strong> ${rating}<br>
+                  <strong>Summary:</strong> ${summary}<br><br>
+                  `;
+                  
+                  reviewsContainer.appendChild(reviewElement);
+        
+        }
+      }
+    })
+   .catch(error=>
+    {console.log("error:",error)}); 
 
 
