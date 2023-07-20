@@ -77,34 +77,24 @@ function fetchAnimeDetails(title) {
       // const review = document.createElement('h3');
       // review.innerHTML = `<strong>Review:</strong> ${data.data[0].review}`;
       // a2.appendChild(review);
-
+      const review = document.createElement('h3');
+      review.innerHTML = `<strong>Review:</strong> ${data.data[0].review}`;
+      a2.appendChild(review);
+      
       const otherPageLink = document.createElement('a');
-      otherPageLink.innerHTML = "Go to Another Page";
+      otherPageLink.classList.add("trailer");
+      otherPageLink.innerHTML = "Click to Watch Trailer";
       otherPageLink.href = `gallery.html?title=${encodeURIComponent(data.data[0].title)}`;
       a2.appendChild(otherPageLink);
 
 
-
-
-
-
-
-
-
-      const review = document.createElement('h3');
-      review.innerHTML = `<strong>Review:</strong> ${data.data[0].review}`;
-      a2.appendChild(review);
-
-
-      const trailer = document.createElement('a');
-      trailer.classList.add("gallery");
-      trailer.innerHTML = "GAllery";
-      trailer.addEventListener('DOMContentLoaded', () => {
-        trailer.href = `gallery.html?title=${encodeURIComponent(title)}`;
-      });
-      a2.appendChild(trailer);
-
-
+      // const trailer = document.createElement('a');
+      // trailer.classList.add("gallery");
+      // trailer.innerHTML = "GAllery";
+      // trailer.addEventListener('DOMContentLoaded', () => {
+      //   trailer.href = `gallery.html?title=${encodeURIComponent(title)}`;
+      // });
+      // a2.appendChild(trailer);
 
       const moreContainer = document.createElement('div');
       moreContainer.classList.add('morecontainer')
@@ -119,7 +109,7 @@ function fetchAnimeDetails(title) {
       readmore.addEventListener('click', function () {
         moreContainer.classList.toggle('active');
       });
-      ad.appendChild(moreContainer);
+      a2.appendChild(moreContainer);
 
 
 

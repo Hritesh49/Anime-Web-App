@@ -246,6 +246,12 @@ a {
   /* align-self: flex-end; */
 }
 
+.trailer {
+  color: navy;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
 .anime-synopsis {
   font-size: larger;
   padding-top: 2rem;
@@ -319,13 +325,6 @@ a {
 .expand::before {
   content: url(expand.png);
   cursor: pointer;
-}
-
-.expand {
-  background-color: #9fd1f2;
-  backdrop-filter: blur(8px);
-  border-radius: 50%;
-  box-shadow: 0.0625rem 0.0625rem 0.3125rem black;
 }
 
 #list-container.active>#character-container {
