@@ -3,17 +3,17 @@
 
 function fetchAnimeDetails(title) {
   fetch(`https://api.jikan.moe/v4/anime?q=${title}`)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        const aId = data.data[0].images.jpg.large_image_url;
-        console.log(aId);
-        const ad = document.getElementById('anime-details');
-        const animeCard = document.createElement('div');
-        animeCard.classList.add("animecard");
-        const pic = document.createElement('img');
-        pic.src = aId;
-        animeCard.appendChild(pic);
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      const aId = data.data[0].images.jpg.large_image_url;
+      console.log(aId);
+      const ad = document.getElementById('anime-details');
+      const animeCard = document.createElement('div');
+      animeCard.classList.add("animecard");
+      const pic = document.createElement('img');
+      pic.src = aId;
+      animeCard.appendChild(pic);
       ad.appendChild(animeCard);
 
 
@@ -80,7 +80,7 @@ function fetchAnimeDetails(title) {
       const review = document.createElement('h3');
       review.innerHTML = `<strong>Review:</strong> ${data.data[0].review}`;
       a2.appendChild(review);
-      
+
       const otherPageLink = document.createElement('a');
       otherPageLink.classList.add("trailer");
       otherPageLink.innerHTML = "Click to Watch Trailer";
@@ -150,21 +150,19 @@ const dip = mId;
 console.log(dip);
 
 fetch(`https://api.jikan.moe/v4/anime/${dip}/characters`)
-.then(response => response.json())
-.then(data =>
-  {
+  .then(response => response.json())
+  .then(data => {
     console.log(data);
-        // Get the character list element
+    // Get the character list element
     const characterList = document.getElementById('character-list');
     console.log(data.data.length);
     // Get the character list element
-    for(let i=0;i<data.data.length;i++)
-    {
+    for (let i = 0; i < data.data.length; i++) {
       //  console.log(data.data[i].character.images.jpg.image_url);
       //  console.log(data.data[i].character.name);
       //  console.log(data.data[i].role);
 
-    // Display each character's name and image
+      // Display each character's name and image
       const listItem = document.createElement('li');
 
       // Create an image element
@@ -179,53 +177,61 @@ fetch(`https://api.jikan.moe/v4/anime/${dip}/characters`)
       listItem.appendChild(nameSpan);
 
       characterList.appendChild(listItem);
-      
+
     }
-          const listcontainer = document.getElementById('list-container');
-      const Content = document.getElementById('character-container');
-      const Expand = document.querySelector('.expand');
-      Expand.addEventListener('click', function () {
-        listcontainer.classList.toggle('active');
-        if (Content.style.maxHeight) {
-          Content.style.maxHeight = null;
-        } else {
-          Content.style.maxHeight = Content.scrollHeight + "px";
-        }
-      });
+    const listcontainer = document.getElementById('list-container');
+    const Content = document.getElementById('character-container');
+    const Expand = document.querySelector('.expand');
+    Expand.addEventListener('click', function () {
+      listcontainer.classList.toggle('active');
+      if (Content.style.maxHeight) {
+        Content.style.maxHeight = null;
+      } else {
+        Content.style.maxHeight = Content.scrollHeight + "px";
+      }
+    });
 
   })
 
-  fetch(`https://api.jikan.moe/v4/anime/${dip}/reviews`)
-  .then(response=> response.json())
-  .then(data=>
-    {
-      console.log(data);
-      if(data.data.length>0)
-      {
-        const reviewsContainer = document.getElementById('reviewsContainer');
-              reviewsContainer.innerHTML = `<h2>Reviews for ${title}:</h2>`;
-        
-        
-        for(let i=0;i<data.data.length;i++)
-        {
-          console.log(data.data[i].user.username);
-          const rating = data.data[i].score;
-                  const summary = data.data[i].review;
-                  const user = data.data[i].user.username;
-          
-                  const reviewElement = document.createElement('div');
-                  reviewElement.innerHTML = `
+fetch(`https://api.jikan.moe/v4/anime/${dip}/reviews`)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    if (data.data.length > 0) {
+      const reviewsContainer = document.getElementById('reviewsContainer');
+      reviewsContainer.innerHTML = `<h2>Reviews for ${title}:</h2>`;
+
+
+      for (let i = 0; i < data.data.length; i++) {
+        console.log(data.data[i].user.username);
+        const rating = data.data[i].score;
+        const summary = data.data[i].review;
+        const user = data.data[i].user.username;
+        const reviewContainer = document.createElement('div');
+        reviewContainer.classList.add("reviewcontainer");
+        const reviewElement = document.createElement('p');
+        reviewElement.classList.add("reviewelement");
+        reviewElement.innerHTML = `
                   <strong>User:</strong> ${user}<br>
                   <strong>Rating:</strong> ${rating}<br>
                   <strong>Summary:</strong> ${summary}<br><br>
                   `;
-                  
-                  reviewsContainer.appendChild(reviewElement);
-        
-        }
+        reviewContainer.appendChild(reviewElement);
+        const showmore = document.createElement('span');
+        showmore.classList.add('showmore');
+        reviewContainer.appendChild(showmore);
+        showmore.addEventListener('click', function () {
+          reviewContainer.classList.toggle('active');
+        });
+        reviewsContainer.appendChild(reviewContainer);
+
       }
-    })
-   .catch(error=>
-    {console.log("error:",error)}); 
+    }
+    else{
+      const reviewsContainer = document.getElementById('reviewsContainer');
+      reviewsContainer.innerHTML = `<h2>No Reviews available for ${title}</h2>`;
+    }
+  })
+  .catch(error => { console.log("error:", error) });
 
 

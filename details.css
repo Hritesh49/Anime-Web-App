@@ -520,6 +520,35 @@ li img {
   background-image: radial-gradient(circle, #a5d0ed, rgba(13, 122, 172, 0.744));
 }
 
+.reviewelement {
+  font-size: 1.1rem;
+  font-weight: 550;
+  padding-top: 2rem;
+  font-family: 'Roboto', sans-serif;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.showmore {
+  align-self: start;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.showmore::before {
+  content: 'Show More';
+  cursor: pointer;
+}
+
+.reviewcontainer.active>.reviewelement {
+  display: block;
+}
+
+.reviewcontainer.active .showmore::before {
+  content: 'Show Less';
+}
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
 
