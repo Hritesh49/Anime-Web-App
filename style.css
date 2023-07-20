@@ -55,12 +55,12 @@ a {
   background: linear-gradient(to left, #136398, #013365);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #FFF;
-  height: 50px;
+  height: 3.125rem;
   padding: 1em;
   position: fixed;
   width: 100%;
   z-index: 6;
-  border: 1px solid white;
+  border: .0625rem solid white;
 }
 
 .menu {
@@ -72,14 +72,14 @@ a {
 }
 
 .menu>li {
-  margin: 0 1rem;
+  margin: 0 16px;
   overflow: hidden;
 }
 
 .menu-button-container {
   display: none;
   height: 100%;
-  width: 30px;
+  width: 1.875rem;
   cursor: pointer;
   flex-direction: column;
   justify-content: center;
@@ -96,24 +96,24 @@ a {
   display: block;
   background-color: #fff;
   position: absolute;
-  height: 4px;
-  width: 30px;
+  height: .25rem;
+  width: 1.875rem;
   transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
-  border-radius: 2px;
+  border-radius: .125rem;
 }
 
 .menu-button::before {
   content: '';
-  margin-top: -8px;
+  margin-top: -0.5rem;
 }
 
 .menu-button::after {
   content: '';
-  margin-top: 8px;
+  margin-top: .5rem;
 }
 
 #menu-toggle:checked+.menu-button-container .menu-button::before {
-  margin-top: 0px;
+  margin-top: 0rem;
   transform: rotate(405deg);
 }
 
@@ -122,11 +122,15 @@ a {
 }
 
 #menu-toggle:checked+.menu-button-container .menu-button::after {
-  margin-top: 0px;
+  margin-top: 0rem;
   transform: rotate(-405deg);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
+  .top-nav {
+    width: 100%;
+  }
+
   .menu-button-container {
     display: flex;
   }
@@ -134,7 +138,7 @@ a {
   .menu {
     position: absolute;
     top: 0;
-    margin-top: 50px;
+    margin-top: 3.125rem;
     left: 0;
     flex-direction: column;
     width: 100%;
@@ -152,7 +156,7 @@ a {
   }
 
   #menu-toggle:checked~.menu li {
-    border: 1px solid #333;
+    border: .0625rem solid #333;
     height: 2.5em;
     padding: 0.5em;
     transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
@@ -169,7 +173,7 @@ a {
   }
 
   .menu>li:not(:last-child) {
-    border-bottom: 1px solid #444;
+    border-bottom: .0625rem solid #444;
   }
 }
 
@@ -189,7 +193,7 @@ a {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 200px;
+  height: 12.5rem;
   width: 100%;
   background: linear-gradient(to top, #fff, transparent);
   z-index: 4;
@@ -198,8 +202,8 @@ a {
 #man {
   top: inherit;
   bottom: 0;
-  height: 300px;
-  width: 200px;
+  height: 18.75rem;
+  width: 12.5rem;
   position: absolute;
   left: auto;
   right: auto;
@@ -222,7 +226,7 @@ section img {
 #text {
   position: relative;
   color: #f0f6fa;
-  text-shadow: 0px 0px 4px rgb(0, 0, 0), 0px 0px 20px #368bc3fe;
+  text-shadow: 0rem 0rem .25rem rgb(0, 0, 0), 0rem 0rem 1.25rem #368bc3fe;
   font-size: 6rem;
 }
 
@@ -240,8 +244,8 @@ section img {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  /* margin-top: 10px; */
-  padding-top: 20px;
+  /* margin-top: .625rem; */
+  padding-top: 3.75rem;
   background-color: #013365;
 }
 
@@ -264,13 +268,13 @@ form {
   padding: 1rem 1rem;
   color: black;
   width: 98%;
-  border-radius: 25px 0 0 25px;
+  border-radius: 1.5625rem 0 0 1.5625rem;
 }
 
 .search-btn {
   font-family: serif;
   font-size: 1rem;
-  border-radius: 0 25px 25px 0;
+  border-radius: 0 1.5625rem 1.5625rem 0;
   cursor: pointer;
 }
 
@@ -281,10 +285,10 @@ form {
 
 .backbtn {
   font-family: serif;
-  padding: 0.7rem;
+  padding: .7rem;
   font-size: 1.2rem;
-  border: 1px solid black;
-  border-radius: 25px;
+  border: .0625rem solid black;
+  border-radius: 1.5625rem;
   cursor: pointer;
   align-self: first baseline;
   text-align: center;
@@ -308,14 +312,14 @@ h2 {
   font-size: 3rem;
   text-align: center;
   font-family: 'Montserrat', serif;
-  text-shadow: 1px 2px 10px #bed5f9;
+  text-shadow: .0625rem .125rem .625rem #bed5f9;
 }
 
 
 
 #anime-searchcontainer {
   /*-----all text and anime image----*/
-  margin: 40px 0 0px 0;
+  margin: 2.5rem 0 0rem 0;
 }
 
 .search {
@@ -326,7 +330,7 @@ h2 {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: 10px 0 30px 0;
+  margin: 0;
 }
 
 
@@ -337,10 +341,11 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 40px;
+  padding-bottom: 2.5rem;
   background-color: #013365;
 }
-  /* background-color: #013365; */
+
+/* background-color: #013365; */
 
 
 #anime-container>h2 {
@@ -357,32 +362,32 @@ h2 {
   /* background: #e2eef4; */
   /* background-color: #c4dff1; */
   /* background: linear-gradient(to right, whitesmoke, #1F6E8C, whitesmoke); */
-  padding: 20px 0px;
-  margin-top: 15px;
+  padding: 1.25rem 0rem;
+  margin-top: .9375rem;
 }
 
 /* .topdiv::before {
   position: absolute;
   height: 100%;
-  width: 100px;
+  width: 6.25rem;
   content: '';
   left: 0;
   top: 0;
   z-index: 3;
   background-image: linear-gradient(90deg, #013365, transparent);
-  border-radius: 10px;
+  border-radius: .625rem;
 } */
 
 /* .topdiv::after {
   position: absolute;
   height: 100%;
-  width: 100px;
+  width: 6.25rem;
   content: '';
   right: 0;
   top: 0;
   z-index: 3;
   background-image: linear-gradient(-90deg, #013365, transparent);
-  border-radius: 10px;
+  border-radius: .625rem;
 } */
 
 .content {
@@ -403,8 +408,8 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 40px;
+  padding-top: 1.25rem;
+  padding-bottom: 2.5rem;
   background-color: #013365;
 }
 
@@ -420,40 +425,40 @@ h2 {
   /* background: #e2eef4; */
   /* background-color: #c4dff1; */
   /* background: linear-gradient(to right, whitesmoke, #1F6E8C, whitesmoke); */
-  padding: 20px 0px;
-  margin-top: 15px;
+  padding: 1.25rem 0rem;
+  margin-top: .9375rem;
 }
 
 /* .upcomingdiv::before {
   position: absolute;
   height: 100%;
-  width: 100px;
+  width: 6.25rem;
   content: '';
   left: 0;
   top: 0;
   z-index: 3;
   background-image: linear-gradient(90deg, #013365, transparent);
-  border-radius: 10px;
+  border-radius: .625rem;
 } */
 
 /* .upcomingdiv::after {
   position: absolute;
   height: 100%;
-  width: 100px;
+  width: 6.25rem;
   content: '';
   right: 0;
   top: 0;
   z-index: 3;
   background-image: linear-gradient(-90deg, #013365, transparent);
-  border-radius: 10px;
+  border-radius: .625rem;
 } */
 
 .topleft,
 .topright {
   position: absolute;
-  width: 60px;
-  height: 60px;
-  border-radius: 50px;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 3.125rem;
   cursor: pointer;
   filter: invert(96%) sepia(0%) saturate(152%) hue-rotate(277deg) brightness(115%) contrast(100%);
 }
@@ -461,9 +466,9 @@ h2 {
 .upcomingleft,
 .upcomingright {
   position: absolute;
-  width: 60px;
-  height: 60px;
-  border-radius: 50px;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 3.125rem;
   cursor: pointer;
   filter: invert(96%) sepia(0%) saturate(152%) hue-rotate(277deg) brightness(115%) contrast(100%);
 }
@@ -471,41 +476,41 @@ h2 {
 .nowleft,
 .nowright {
   position: absolute;
-  width: 60px;
-  height: 60px;
-  border-radius: 50px;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 3.125rem;
   cursor: pointer;
   filter: invert(37%) sepia(35%) saturate(891%) hue-rotate(151deg) brightness(93%) contrast(94%);
 }
 
 .upcomingleft {
   top: 40%;
-  left: -60px;
+  left: -3.75rem;
 }
 
 .nowleft {
   top: 40%;
-  left: -60px;
+  left: -3.75rem;
 }
 
 .topleft {
   top: 40%;
-  left: -60px;
+  left: -3.75rem;
 }
 
 .upcomingright {
   top: 40%;
-  right: -60px;
+  right: -3.75rem;
 }
 
 .nowright {
   top: 40%;
-  right: -60px;
+  right: -3.75rem;
 }
 
 .topright {
   top: 40%;
-  right: -60px;
+  right: -3.75rem;
 }
 
 .upcoming {
@@ -525,13 +530,13 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 80px;
-  padding-top: 50px;
+  padding-bottom: 5rem;
+  padding-top: 3.125rem;
   background-image: radial-gradient(circle, #78bae7, rgba(255, 255, 255, 0.001), #78bae7);
 }
 
 #now-container>h2 {
-  text-shadow: 1px 2px 10px #4a89e7;
+  text-shadow: .0625rem .125rem .625rem #4a89e7;
 }
 
 .nowdiv {
@@ -542,33 +547,33 @@ h2 {
   /* background: #e2eef4; */
   /* background-color: #c4dff1; */
   /* background: linear-gradient(to right, whitesmoke, #1F6E8C, whitesmoke); */
-  padding: 20px 0px;
-  margin-top: 15px;
+  padding: 1.25rem 0rem;
+  margin-top: .9375rem;
   /* background-color: #013365; */
 }
 
 /* .nowdiv::before {
   position: absolute;
   height: 100%;
-  width: 100px;
+  width: 6.25rem;
   content: '';
   left: 0;
   top: 0;
   z-index: 3;
   background-image: linear-gradient(90deg, #78bae7, transparent);
-  border-radius: 10px;
+  border-radius: .625rem;
 } */
 
 /* .nowdiv::after {
   position: absolute;
   height: 100%;
-  width: 100px;
+  width: 6.25rem;
   content: '';
   right: 0;
   top: 0;
   z-index: 3;
   background-image: linear-gradient(-90deg, #78bae7, transparent);
-  border-radius: 10px;
+  border-radius: .625rem;
 } */
 
 .now {
@@ -584,58 +589,58 @@ h2 {
 
 .anime-upcard {
   /*---for all anime box or outline---*/
-  min-width: 200px;
-  max-width: 200px;
+  min-width: 12.5rem;
+  max-width: 12.5rem;
   height: auto;
-  margin: 10px;
-  padding: 10px;
+  margin: .625rem;
+  padding: .625rem;
   text-align: center;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  border-radius: .5rem;
+  border: .0625rem solid #ddd;
   background: rgb(210, 210, 210);
-  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.645);
+  box-shadow: .125rem .1875rem .5rem rgba(0, 0, 0, 0.645);
   z-index: 2;
   transition: transform .2s;
 }
 
 .anime-nowcard {
   /*---for all anime box or outline---*/
-  min-width: 200px;
-  max-width: 200px;
+  min-width: 12.5rem;
+  max-width: 12.5rem;
   height: auto;
-  margin: 10px;
-  padding: 10px;
+  margin: .625rem;
+  padding: .625rem;
   text-align: center;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  border-radius: .5rem;
+  border: .0625rem solid #ddd;
   background: rgb(210, 210, 210);
-  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.645);
+  box-shadow: .125rem .1875rem .5rem rgba(0, 0, 0, 0.645);
   z-index: 2;
   transition: transform .2s;
 }
 
 /* .anime-upcard:first-child {
-  margin-left: 40px;
+  margin-left: 2.5rem;
 }
 
 .anime-nowcard:first-child {
-  margin-left: 40px;
+  margin-left: 2.5rem;
 }
 
 .anime-card:first-child {
-  margin-left: 30px;
+  margin-left: 1.875rem;
 }
 
 .anime-upcard:last-child {
-  margin-right: 50px;
+  margin-right: 3.125rem;
 }
 
 .anime-nowcard:last-child {
-  margin-right: 50px;
+  margin-right: 3.125rem;
 }
 
 .anime-card:last-child {
-  margin-right: 50px;
+  margin-right: 3.125rem;
 } */
 
 .anime-upcard:hover {
@@ -652,33 +657,33 @@ h2 {
 
 .anime-card {
   /*---for all anime box or outline---*/
-  min-width: 200px;
-  max-width: 200px;
+  min-width: 12.5rem;
+  max-width: 12.5rem;
   height: auto;
-  margin: 10px;
-  padding: 10px;
+  margin: .625rem;
+  padding: .625rem;
   text-align: center;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  border-radius: .5rem;
+  border: .0625rem solid #ddd;
   background: rgb(210, 210, 210);
-  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.645);
+  box-shadow: .125rem .1875rem .5rem rgba(0, 0, 0, 0.645);
   z-index: 2;
   transition: transform .2s;
 }
 
 .anime-searchcard {
   /*---for all anime box or outline---*/
-  width: 230px;
-  height: 480px;
-  margin: 10px;
-  padding: 10px;
+  width: 14.375rem;
+  height: 30rem;
+  margin: .625rem;
+  padding: .625rem;
   text-align: center;
-  border: 1px solid #ddd;
-  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.645);
+  border: .0625rem solid #ddd;
+  box-shadow: .125rem .1875rem .5rem rgba(0, 0, 0, 0.645);
   z-index: 2;
   transition: transform .2s;
   background-color: #e7e1e1;
-  border-radius: 8px;
+  border-radius: .5rem;
 }
 
 .anime-card:hover {
@@ -689,7 +694,7 @@ h2 {
 .anime-image {
   width: 100%;
   height: auto;
-  margin-bottom: 10px;
+  margin-bottom: .625rem;
 }
 
 .anime-title {
@@ -702,7 +707,7 @@ h2 {
 
 .anime-episodes {
   color: #888;
-  font-size: 13px;
+  font-size: .8125rem;
 }
 
 
@@ -731,11 +736,11 @@ h2 {
 .loader {
   border: 0 solid transparent;
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 9.375rem;
+  height: 9.375rem;
   position: absolute;
-  top: calc(50vh-75px);
-  left: calc(50vw-75px);
+  top: calc(50vh-4.6875rem);
+  left: calc(50vw-4.6875rem);
 
   justify-content: center;
   align-items: center;
@@ -786,12 +791,12 @@ h2 {
 
 .footer-distributed {
   background-image: radial-gradient(circle, #78bae7, rgba(13, 122, 172, 0.744), #78bae7);
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 .0625rem .0625rem 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   width: 100%;
   text-align: left;
-  font: bold 1rem sans-serif;
-  padding: 1.5rem 3.125rem;
+  font: bold 16px sans-serif;
+  padding: 24px 50px;
 }
 
 .footer-distributed .footer-left,
@@ -811,7 +816,7 @@ h2 {
 
 .footer-distributed h3 {
   color: #ffffff;
-  font: normal 2.25rem 'Open Sans', cursive;
+  font: normal 36px 'Open Sans', cursive;
   margin: 0;
 }
 
@@ -823,8 +828,8 @@ h2 {
 
 .footer-distributed .footer-links {
   color: #ffffff;
-  margin: 1.25rem 0 0.75rem;
-  font: 1rem sans-serif;
+  margin: 20px 0 12px;
+  font: 16px sans-serif;
   padding: 0;
 }
 
@@ -838,26 +843,15 @@ h2 {
 
 .footer-distributed .footer-company-name {
   color: #222;
-  font-size: 1.275rem;
+  font-size: 20.4px;
   font-weight: normal;
   margin: 0;
 }
 
 .footer-company-name {
   text-align: center;
-  position: relative;
 }
 
-.footer-company-name::before {
-  position: absolute;
-  width: 90rem;
-  height: 0.125rem;
-  content: '';
-  background-color: #000000;
-  left: 50%;
-  top: -10px;
-  transform: translateX(-50%);
-}
 
 /* Footer Center */
 
@@ -868,19 +862,19 @@ h2 {
 .footer-distributed .footer-center i {
   background-color: #33383b;
   color: #ffffff;
-  font-size: 1.5625rem;
-  width: 2.3625rem;
-  height: 2.3625rem;
+  font-size: 25px;
+  width: 37.8px;
+  height: 37.8px;
   border-radius: 50%;
   text-align: center;
-  line-height: 2.625rem;
-  margin: 0.625rem 0.9375rem;
+  line-height: 42px;
+  margin: 10px 15px;
   vertical-align: middle;
 }
 
 .footer-distributed .footer-center i.fa-envelope {
-  font-size: 1.0625rem;
-  line-height: 2.3625rem;
+  font-size: 17px;
+  line-height: 37.8px;
 }
 
 .footer-distributed .footer-center p {
@@ -894,7 +888,7 @@ h2 {
 .footer-distributed .footer-center p span {
   display: block;
   font-weight: normal;
-  font-size: 0.875rem;
+  font-size: 14px;
   line-height: 2;
 }
 
@@ -907,11 +901,11 @@ h2 {
 .footer-distributed .footer-links a:before {
   content: "|";
   font-weight: 300;
-  font-size: 1.25rem;
+  font-size: 20px;
   left: 0;
   color: #fff;
   display: inline-block;
-  padding-right: 0.3125rem;
+  padding-right: 5px;
 }
 
 .footer-distributed .footer-links .link-1:before {
@@ -925,9 +919,9 @@ h2 {
 }
 
 .footer-distributed .footer-company-about {
-  line-height: 1.25rem;
+  line-height: 20px;
   color: #eff4f8;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: normal;
   margin: 0;
 }
@@ -935,41 +929,37 @@ h2 {
 .footer-distributed .footer-company-about span {
   display: block;
   color: #ffffff;
-  font-size: 0.875rem;
+  font-size: 14px;
   font-weight: bold;
   text-decoration: underline;
-  margin-bottom: 0.7rem;
+  margin-bottom: 11.2px;
 }
 
 .footer-distributed .footer-icons {
-  margin-top: 1.5625rem;
-  margin-bottom: 1.2625rem;
+  margin-top: 25px;
+  margin-bottom: 20.2px;
 }
 
 .footer-distributed .footer-icons a {
   display: inline-block;
-  width: 2.24rem;
-  height: 2.24rem;
+  width: 35.84px;
+  height: 35.84px;
   cursor: pointer;
   background-color: #33383b;
-  border-radius: 0.125rem;
+  border-radius: 2px;
 
-  font-size: 1.25rem;
+  font-size: 20px;
   color: #ffffff;
   text-align: center;
-  line-height: 2.24rem;
+  line-height: 35.84px;
 
-  margin-right: 0.215rem;
-  margin-bottom: 0.3125rem;
+  margin-right: 3.44px;
+  margin-bottom: 5px;
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */
 
-@media (max-width: 980px) {
-
-  html {
-    font-size: 100%;
-  }
+@media (max-width: 800px) {
 
   .footer-distributed .footer-left,
   .footer-distributed .footer-center,
@@ -986,4 +976,50 @@ h2 {
 
 }
 
+/* overall media query */
 
+@media screen and (max-width:1440px) {
+  html {
+    font-size: 125%;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+@media screen and (max-width:768px) {
+  html {
+    font-size: 88%;
+  }
+}
+
+@media screen and (max-width:600px) {
+  html {
+    font-size: 84%;
+  }
+}
+
+@media screen and (max-width:426px) {
+  html {
+    font-size: 70%;
+  }
+  .main-container {
+    padding-top: 0;
+    min-height: 75vh;
+  }
+}
+
+/* @media screen and (max-width:370px) {
+  html {
+    font-size: 65%;
+  }
+} */
+
+/* @media screen and (max-width:20rem) {
+  html {
+    font-size: 60%;
+  }
+} */

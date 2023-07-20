@@ -229,7 +229,7 @@ a {
   position: relative;
 }
 
-.footer-company-name::before {
+  {
   position: absolute;
   width: 90rem;
   height: 0.125rem;
