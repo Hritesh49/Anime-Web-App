@@ -72,7 +72,7 @@ a {
 }
 
 .menu>li {
-  margin: 0 16px;
+  margin: 0 1rem;
   overflow: hidden;
 }
 
@@ -126,7 +126,7 @@ a {
   transform: rotate(-405deg);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .top-nav {
     width: 100%;
   }
@@ -795,8 +795,8 @@ h2 {
   box-sizing: border-box;
   width: 100%;
   text-align: left;
-  font: bold 16px sans-serif;
-  padding: 24px 50px;
+  font: bold 1rem sans-serif;
+  padding: 1.5rem 3.125rem;
 }
 
 .footer-distributed .footer-left,
@@ -816,7 +816,7 @@ h2 {
 
 .footer-distributed h3 {
   color: #ffffff;
-  font: normal 36px 'Open Sans', cursive;
+  font: normal 2.25rem 'Open Sans';
   margin: 0;
 }
 
@@ -828,8 +828,8 @@ h2 {
 
 .footer-distributed .footer-links {
   color: #ffffff;
-  margin: 20px 0 12px;
-  font: 16px sans-serif;
+  margin: 1.25rem 0 .75rem;
+  font: 1rem sans-serif;
   padding: 0;
 }
 
@@ -843,7 +843,7 @@ h2 {
 
 .footer-distributed .footer-company-name {
   color: #222;
-  font-size: 20.4px;
+  font-size: 1.275rem;
   font-weight: normal;
   margin: 0;
 }
@@ -862,19 +862,19 @@ h2 {
 .footer-distributed .footer-center i {
   background-color: #33383b;
   color: #ffffff;
-  font-size: 25px;
-  width: 37.8px;
-  height: 37.8px;
+  font-size: 1.5625rem;
+  width: 2.3625rem;
+  height: 2.3625rem;
   border-radius: 50%;
   text-align: center;
-  line-height: 42px;
-  margin: 10px 15px;
+  line-height: 2.625rem;
+  margin: .625rem .9375rem;
   vertical-align: middle;
 }
 
 .footer-distributed .footer-center i.fa-envelope {
-  font-size: 17px;
-  line-height: 37.8px;
+  font-size: 1.0625rem;
+  line-height: 2.3625rem;
 }
 
 .footer-distributed .footer-center p {
@@ -888,7 +888,7 @@ h2 {
 .footer-distributed .footer-center p span {
   display: block;
   font-weight: normal;
-  font-size: 14px;
+  font-size: .875rem;
   line-height: 2;
 }
 
@@ -901,11 +901,11 @@ h2 {
 .footer-distributed .footer-links a:before {
   content: "|";
   font-weight: 300;
-  font-size: 20px;
+  font-size: 1.25rem;
   left: 0;
   color: #fff;
   display: inline-block;
-  padding-right: 5px;
+  padding-right: .3125rem;
 }
 
 .footer-distributed .footer-links .link-1:before {
@@ -919,9 +919,9 @@ h2 {
 }
 
 .footer-distributed .footer-company-about {
-  line-height: 20px;
+  line-height: 1.25rem;
   color: #eff4f8;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: normal;
   margin: 0;
 }
@@ -929,32 +929,32 @@ h2 {
 .footer-distributed .footer-company-about span {
   display: block;
   color: #ffffff;
-  font-size: 14px;
+  font-size: .875rem;
   font-weight: bold;
   text-decoration: underline;
-  margin-bottom: 11.2px;
+  margin-bottom: .7rem;
 }
 
 .footer-distributed .footer-icons {
-  margin-top: 25px;
-  margin-bottom: 20.2px;
+  margin-top: 1.5625rem;
+  margin-bottom: 1.2625rem;
 }
 
 .footer-distributed .footer-icons a {
   display: inline-block;
-  width: 35.84px;
-  height: 35.84px;
+  width: 2.24rem;
+  height: 2.24rem;
   cursor: pointer;
   background-color: #33383b;
-  border-radius: 2px;
+  border-radius: .125rem;
 
-  font-size: 20px;
+  font-size: 1.25rem;
   color: #ffffff;
   text-align: center;
-  line-height: 35.84px;
+  line-height: 2.24rem;
 
-  margin-right: 3.44px;
-  margin-bottom: 5px;
+  margin-right: .215rem;
+  margin-bottom: .3125rem;
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */
@@ -1012,7 +1012,7 @@ h2 {
   }
 }
 
-/* @media screen and (max-width:370px) {
+/* @media screen and (max-width:23.125rem) {
   html {
     font-size: 65%;
   }
