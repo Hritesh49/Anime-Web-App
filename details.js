@@ -1,3 +1,19 @@
+let BottomG = document.getElementById("backtotop");
+window.onscroll = function(){scrolltoTop()};
+function scrolltoTop() {
+  if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+    BottomG.style.display = "block";
+    BottomG.classList.add("show");
+  } else {
+    BottomG.style.display = "none";
+    BottomG.classList.remove("show");
+  }
+}
+BottomG.onclick = function(){BacktoTop()};
+function BacktoTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
 
 // Function to fetch anime details by title
 
@@ -219,29 +235,28 @@ const throttledFetchAnimeCharacters = throttle(animeCharacters, 10000);
 
 throttledFetchAnimeCharacters(dip);
 
-function reviews(dip)
-{
+function reviews(dip) {
   fetch(`https://api.jikan.moe/v4/anime/${dip}/reviews`)
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-    if (data.data.length < 1 || data.data.length == null) {
-      
-      const reviewsContainer = document.getElementById('reviewsContainer');
-      reviewsContainer.innerHTML = `<h2>No Reviews available for ${title}</h2>`;
-    }
-    else {
-      const reviewsContainer = document.getElementById('reviewsContainer');
-      reviewsContainer.innerHTML = `<h2>Reviews for ${title}:</h2>`;
-      
-      
-      for (let i = 0; i < data.data.length; i++) {
-        console.log(data.data[i].user.username);
-        const rating = data.data[i].score;
-        const summary = data.data[i].review;
-        const user = data.data[i].user.username;
-        const reviewContainer = document.createElement('div');
-        reviewContainer.classList.add("reviewcontainer");
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      if (data.data.length < 1 || data.data.length == null) {
+
+        const reviewsContainer = document.getElementById('reviewsContainer');
+        reviewsContainer.innerHTML = `<h2>No Reviews available for ${title}</h2>`;
+      }
+      else {
+        const reviewsContainer = document.getElementById('reviewsContainer');
+        reviewsContainer.innerHTML = `<h2>Reviews for ${title}:</h2>`;
+
+
+        for (let i = 0; i < data.data.length; i++) {
+          console.log(data.data[i].user.username);
+          const rating = data.data[i].score;
+          const summary = data.data[i].review;
+          const user = data.data[i].user.username;
+          const reviewContainer = document.createElement('div');
+          reviewContainer.classList.add("reviewcontainer");
           const reviewElement = document.createElement('p');
           reviewElement.classList.add("reviewelement");
           reviewElement.innerHTML = `
@@ -259,11 +274,25 @@ function reviews(dip)
           reviewsContainer.appendChild(reviewContainer);
         }
       }
+
+      const mainreview = document.getElementById('mainReviewbox');
+      const MoreReview = document.getElementById('morereview');
+      MoreReview.addEventListener('click', function () {
+        mainreview.classList.toggle('active');
+        if (reviewsContainer.style.maxHeight) {
+          reviewsContainer.style.maxHeight = null;
+        } else {
+          reviewsContainer.style.maxHeight = reviewsContainer.scrollHeight + "px";
+        }
+      });
+
     })
     .catch(error => { console.log("error:", error) });
-  }
-  
-  
-  
+}
+
+
+
 const throttledFetchAnimeReviews = throttle(reviews, 10000);
 throttledFetchAnimeReviews(dip);
+
+

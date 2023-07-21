@@ -21,6 +21,38 @@ body {
   font-weight: bold;
 }
 
+/*--back to top function--*/
+
+#backtotop {
+  display: none;
+  position: fixed;
+  bottom: 1.45rem;
+  right: 2.2rem;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #030303;
+  cursor: pointer;
+  padding: 0.2rem;
+  border-radius: 50%;
+  visibility: hidden;
+  opacity: 0;
+  transition: background-color .3s,opacity .5s, visibility .5s;
+}
+#backtotop:hover {
+  background-color: #333;
+}
+#backtotop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#backtotop>img {
+  width: 2.5rem;
+  height: 2.5rem;
+  filter: invert(96%) sepia(0%) saturate(152%) hue-rotate(277deg) brightness(115%) contrast(100%);
+}
+
 /*---------------nav bar------------*/
 /* @import url(https://fonts.googleapis.com/css?family=Raleway); */
 
@@ -1012,14 +1044,22 @@ h2 {
   }
 }
 
-/* @media screen and (max-width:23.125rem) {
+@media screen and (max-width:377px) {
   html {
     font-size: 65%;
   }
-} */
-
-/* @media screen and (max-width:20rem) {
-  html {
-    font-size: 60%;
+  .main-container {
+    padding-top: 0;
+    min-height: 65vh;
   }
-} */
+}
+
+@media screen and (max-width:324px) {
+  html {
+    font-size: 55%;
+  }
+  .main-container {
+    padding-top: 0;
+    min-height: 55vh;
+  }
+}
