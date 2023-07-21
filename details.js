@@ -148,60 +148,93 @@ async function fetchAnime(title) {
 const mId = await fetchAnime(title);
 const dip = mId;
 console.log(dip);
+function animeCharacters(dip) {
+  fetch(`https://api.jikan.moe/v4/anime/${dip}/characters`)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      // Get the character list element
+      const characterList = document.getElementById('character-list');
+      console.log(data.data.length);
+      // Get the character list element
+      for (let i = 0; i < data.data.length; i++) {
+        //  console.log(data.data[i].character.images.jpg.image_url);
+        //  console.log(data.data[i].character.name);
+        //  console.log(data.data[i].role);
 
-fetch(`https://api.jikan.moe/v4/anime/${dip}/characters`)
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-    // Get the character list element
-    const characterList = document.getElementById('character-list');
-    console.log(data.data.length);
-    // Get the character list element
-    for (let i = 0; i < data.data.length; i++) {
-      //  console.log(data.data[i].character.images.jpg.image_url);
-      //  console.log(data.data[i].character.name);
-      //  console.log(data.data[i].role);
+        // Display each character's name and image
+        const listItem = document.createElement('li');
 
-      // Display each character's name and image
-      const listItem = document.createElement('li');
+        // Create an image element
+        const image = document.createElement('img');
+        image.src = data.data[i].character.images.jpg.image_url;
+        // image.alt = character.node.name.full;
+        listItem.appendChild(image);
 
-      // Create an image element
-      const image = document.createElement('img');
-      image.src = data.data[i].character.images.jpg.image_url;
-      // image.alt = character.node.name.full;
-      listItem.appendChild(image);
+        // Create a span element for the character name
+        const nameSpan = document.createElement('span');
+        nameSpan.textContent = data.data[i].character.name;
+        listItem.appendChild(nameSpan);
 
-      // Create a span element for the character name
-      const nameSpan = document.createElement('span');
-      nameSpan.textContent = data.data[i].character.name;
-      listItem.appendChild(nameSpan);
+        characterList.appendChild(listItem);
 
-      characterList.appendChild(listItem);
-
-    }
-    const listcontainer = document.getElementById('list-container');
-    const Content = document.getElementById('character-container');
-    const Expand = document.querySelector('.expand');
-    Expand.addEventListener('click', function () {
-      listcontainer.classList.toggle('active');
-      if (Content.style.maxHeight) {
-        Content.style.maxHeight = null;
-      } else {
-        Content.style.maxHeight = Content.scrollHeight + "px";
       }
-    });
+      const listcontainer = document.getElementById('list-container');
+      const Content = document.getElementById('character-container');
+      const Expand = document.querySelector('.expand');
+      Expand.addEventListener('click', function () {
+        listcontainer.classList.toggle('active');
+        if (Content.style.maxHeight) {
+          Content.style.maxHeight = null;
+        } else {
+          Content.style.maxHeight = Content.scrollHeight + "px";
+        }
+      });
 
-  })
+    })
+    .catch(error => { console.log("error:", error) });
+}
 
-fetch(`https://api.jikan.moe/v4/anime/${dip}/reviews`)
+function throttle(fn, delay) {
+  let lastCallTime = 0;
+  let timeoutId;
+
+  return function (...args) {
+    const now = new Date().getTime();
+    const timeSinceLastCall = now - lastCallTime;
+
+    if (timeSinceLastCall >= delay) {
+      fn.apply(this, args);
+      lastCallTime = now;
+    } else {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        fn.apply(this, args);
+        lastCallTime = new Date().getTime();
+      }, delay - timeSinceLastCall);
+    }
+  };
+}
+const throttledFetchAnimeCharacters = throttle(animeCharacters, 10000);
+
+throttledFetchAnimeCharacters(dip);
+
+function reviews(dip)
+{
+  fetch(`https://api.jikan.moe/v4/anime/${dip}/reviews`)
   .then(response => response.json())
   .then(data => {
     console.log(data);
-    if (data.data.length > 0) {
+    if (data.data.length < 1 || data.data.length == null) {
+      
+      const reviewsContainer = document.getElementById('reviewsContainer');
+      reviewsContainer.innerHTML = `<h2>No Reviews available for ${title}</h2>`;
+    }
+    else {
       const reviewsContainer = document.getElementById('reviewsContainer');
       reviewsContainer.innerHTML = `<h2>Reviews for ${title}:</h2>`;
-
-
+      
+      
       for (let i = 0; i < data.data.length; i++) {
         console.log(data.data[i].user.username);
         const rating = data.data[i].score;
@@ -209,29 +242,28 @@ fetch(`https://api.jikan.moe/v4/anime/${dip}/reviews`)
         const user = data.data[i].user.username;
         const reviewContainer = document.createElement('div');
         reviewContainer.classList.add("reviewcontainer");
-        const reviewElement = document.createElement('p');
-        reviewElement.classList.add("reviewelement");
-        reviewElement.innerHTML = `
-                  <strong>User:</strong> ${user}<br>
-                  <strong>Rating:</strong> ${rating}<br>
-                  <strong>Summary:</strong> ${summary}<br><br>
-                  `;
-        reviewContainer.appendChild(reviewElement);
-        const showmore = document.createElement('span');
-        showmore.classList.add('showmore');
-        reviewContainer.appendChild(showmore);
-        showmore.addEventListener('click', function () {
-          reviewContainer.classList.toggle('active');
-        });
-        reviewsContainer.appendChild(reviewContainer);
-
+          const reviewElement = document.createElement('p');
+          reviewElement.classList.add("reviewelement");
+          reviewElement.innerHTML = `
+          <strong>User:</strong> ${user}<br>
+          <strong>Rating:</strong> ${rating}<br>
+          <strong>Summary:</strong> ${summary}<br><br>
+          `;
+          reviewContainer.appendChild(reviewElement);
+          const showmore = document.createElement('span');
+          showmore.classList.add('showmore');
+          reviewContainer.appendChild(showmore);
+          showmore.addEventListener('click', function () {
+            reviewContainer.classList.toggle('active');
+          });
+          reviewsContainer.appendChild(reviewContainer);
+        }
       }
-    }
-    else{
-      const reviewsContainer = document.getElementById('reviewsContainer');
-      reviewsContainer.innerHTML = `<h2>No Reviews available for ${title}</h2>`;
-    }
-  })
-  .catch(error => { console.log("error:", error) });
-
-
+    })
+    .catch(error => { console.log("error:", error) });
+  }
+  
+  
+  
+const throttledFetchAnimeReviews = throttle(reviews, 10000);
+throttledFetchAnimeReviews(dip);
