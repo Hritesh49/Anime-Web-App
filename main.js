@@ -1,22 +1,7 @@
 let BottomG = document.getElementById("backtotop");
 window.onscroll = function(){scrolltoTop()};
 function scrolltoTop() {
-  if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
-    BottomG.style.display = "block";
-    BottomG.classList.add("show");
-  } else {
-    BottomG.style.display = "none";
-    BottomG.classList.remove("show");
-  }
-}
-BottomG.onclick = function(){BacktoTop()};
-function BacktoTop() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}let BottomG = document.getElementById("backtotop");
-window.onscroll = function(){scrolltoTop()};
-function scrolltoTop() {
-  if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
     BottomG.style.display = "block";
     BottomG.classList.add("show");
   } else {
