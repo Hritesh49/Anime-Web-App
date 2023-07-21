@@ -1,7 +1,7 @@
 let BottomG = document.getElementById("backtotop");
 window.onscroll = function(){scrolltoTop()};
 function scrolltoTop() {
-  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+  if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
     BottomG.style.display = "block";
     BottomG.classList.add("show");
   } else {
